@@ -1,0 +1,15 @@
+a, .btn, .button{
+    text-decoration: none;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+
+.nav-link {
+    @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold py-2
+}
+
+.nav-link:hover {
+    @apply .text-red
+}

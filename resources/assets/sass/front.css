@@ -1,0 +1,15 @@
+body, html {
+    @apply .text-grey-darkest
+}
+
+a {
+    @apply .text-red .font-semibold
+}
+
+a:hover, a:active {
+    @apply .text-red-dark
+}
+
+.active-link, .exact-active-link {
+    @apply .border-b-4 .border-red
+}
