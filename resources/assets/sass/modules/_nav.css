@@ -1,5 +1,5 @@
 nav.main-nav {
-  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between .flex-wrap .p-6 .h-16 .z-10
+  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between/* .flex-wrap*/ .p-6 .h-16 .z-10
 }
 
 nav.main-nav .brand {
@@ -14,11 +14,15 @@ nav.main-nav .brand {
   @apply .w-full .block .flex-grow
 }
 
-.navbar .navbar-left {
+.main-nav .navbar-left {
   @apply .text-sm
 }
 
-.navbar .navbar-right .user-name {
+.main-nav .navbar-right {
+  @apply .flex .items-center .mr-4
+}
+
+.main-nav .navbar-right .user-name {
   @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4
 }
 

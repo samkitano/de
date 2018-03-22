@@ -5174,8 +5174,6 @@ nav.main-nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   padding: 24px;
   padding: 1.5rem;
   height: 64px;
@@ -5213,12 +5211,23 @@ nav.main-nav .brand {
           flex-grow: 1;
 }
 
-.navbar .navbar-left {
+.main-nav .navbar-left {
   font-size: 14px;
   font-size: .875rem;
 }
 
-.navbar .navbar-right .user-name {
+.main-nav .navbar-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 16px;
+  margin-right: 1rem;
+}
+
+.main-nav .navbar-right .user-name {
   display: inline-block;
   font-size: 14px;
   font-size: .875rem;

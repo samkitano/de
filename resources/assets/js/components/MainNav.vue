@@ -4,87 +4,54 @@
 
     <div class="burger lg:hidden">
       <button class="btn btn-hamburger"
-              @click="openMenu">
+              @click="toggleMenu">
         <svg-hamburger/>
       </button>
     </div>
 
-    <div :class="menuVisibility">
-      <div class="nav-left sm:flex-col lg:flex-grow">
-        <router-link class="nav-link lg:inline-flex lg:mt-0"
-                     to="/">
-          <svg-home/>
-          <span class="ml-1">Página Inicial</span>
-        </router-link>
+    <expanded-menu :user="user"/>
 
-        <router-link to="/forum" class="nav-link lg:inline-flex lg:mt-0">
-          <svg-comment/><span class="ml-1">Fórum</span>
-        </router-link>
-
-        <div class="nav-link lg:inline-flex lg:mt-0">
-          <svg-magnify/>
-          <input class="ml-1 bg-transparent text-white"
-                 type="text"
-                 placeholder="Pesquisa..."
-                 v-model="searchText">
-        </div>
-      </div>
-
-      <div class="nav-right" v-if="user">
-        <a href="#"
-           class="user-name lg:mt-0"
-        >{{ fullName }}</a>
-      </div>
-
-      <div class="nav-right" v-else>
-        <router-link class="router-link lg:mt-0" to="/entrar">
-          Entrar
-        </router-link>
-      </div>
-    </div>
+    <mobile-menu :user="user"/>
   </nav>
 </template>
 
 <script>
-  import svgHome from './svg/_svg-home'
-  import svgComment from './svg/_svg-comment'
-  import svgMagnify from './svg/_svg-magnify'
+  import Bus from '../store/bus.js';
   import svgHamburger from './svg/_svg-hamburger'
+  import expandedMenu from './partials/expanded-menu'
+  import mobileMenu from './partials/mobile-menu'
 
   const wuser = window.user
 
   export default {
     components: {
       svgHamburger,
-      svgHome,
-      svgComment,
-      svgMagnify
+      expandedMenu,
+      mobileMenu
     },
 
     data () {
       return {
-        menuIsVisible: false,
-        searchText: '',
         user: JSON.parse(wuser)
       }
     },
 
     computed: {
-      menuVisibility () {
-        let common = 'w-full block flex-grow lg:visible lg:flex lg:items-center lg:w-auto'
-
-        return this.menuIsVisible
-          ? common
-          : `${common} hidden`
-      },
+      // menuVisibility () {
+      //   let common = 'w-full block flex-grow lg:visible lg:flex lg:items-center lg:w-auto'
+      //
+      //   return this.menuIsVisible
+      //     ? common
+      //     : `${common} hidden`
+      // },
       fullName () {
         return `${this.user.first_name} ${this.user.last_name}`
       }
     },
 
     methods: {
-      openMenu () {
-        this.menuIsVisible = !this.menuIsVisible
+      toggleMenu () {
+        Bus.$emit('toggleMenu')
       }
     },
 

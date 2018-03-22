@@ -39,5 +39,3 @@ const app = new Vue({
   router,
   store: new Vuex.Store(vStore)
 }).$mount('#app')
-
-window.Bus = new Vue()
