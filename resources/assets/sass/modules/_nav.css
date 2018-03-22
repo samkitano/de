@@ -1,0 +1,39 @@
+nav.main-nav {
+  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between .flex-wrap .p-6 .h-16 .z-10
+}
+
+nav.main-nav .brand {
+  @apply .flex .items-center .flex-no-shrink .text-white .mr-6
+}
+
+.burger {
+  @apply .block .absolute .pin-r .mr-4
+}
+
+.navbar {
+  @apply .w-full .block .flex-grow
+}
+
+.navbar .navbar-left {
+  @apply .text-sm
+}
+
+.navbar .navbar-right .user-name {
+  @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4
+}
+
+/*nav.main-nav .navbar .navbar-right .user-name:hover {*/
+  /*@apply .border-transparent .text-teal .bg-white*/
+/*}*/
+
+/*nav.main-nav .navbar .navbar-left .nav-link {*/
+  /*@apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2*/
+/*}*/
+
+/*nav.main-nav .navbar .navbar-left .nav-link:hover {*/
+  /*@apply .text-red*/
+/*}*/
+
+/*.nav-search {*/
+  /*@apply .ml-1 .bg-transparent .text-white*/
+/*}*/

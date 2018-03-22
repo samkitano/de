@@ -1,13 +1,22 @@
 <template>
-    <div>
-        <main-nav/>
-        <!--<k-menu/>-->
-        <router-view/>
-    </div>
+  <div>
+    <main-nav/>
+
+    <fade-transition>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </fade-transition>  </div>
 </template>
 
 <script>
+  import { FadeTransition } from 'vue2-transitions'
+
   export default {
+    components: {
+      FadeTransition
+    },
+
     name: "app"
   }
 </script>

@@ -56,7 +56,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'banned',
     ];
 
     /**
@@ -118,5 +118,15 @@ class User extends Authenticatable
     public function isBanned(): bool
     {
         return $this->banned !== null;
+    }
+
+    public function ban()
+    {
+        $this->banned = Carbon::now();
+    }
+
+    public function unban()
+    {
+        $this->banned = null;
     }
 }

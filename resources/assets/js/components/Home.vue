@@ -1,13 +1,19 @@
 <template>
   <main class="content">
-    <p>{{ user.name }}</p>
+    <hero/>
   </main>
 </template>
 
 <script>
+  import hero from './partials/hero'
+
   const user = window.user
 
   export default {
+    components: {
+      hero
+    },
+
     data () {
       return {
         user

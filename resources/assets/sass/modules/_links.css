@@ -1,15 +1,24 @@
 a, .btn, .button{
-    text-decoration: none;
-    -webkit-transition: all .25s ease;
-    -moz-transition: all .25s ease;
-    -o-transition: all .25s ease;
-    transition: all .25s ease;
+  text-decoration: none;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 
 .nav-link {
-    @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold py-2
+  @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2
 }
 
 .nav-link:hover {
-    @apply .text-red
+  @apply .text-red
+}
+
+.router-link {
+  @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4;
+  background: rgba(255,255,255,0.1)
+}
+
+.router-link:hover {
+  @apply .border-transparent .text-white .bg-red
 }

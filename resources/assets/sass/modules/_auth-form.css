@@ -1,0 +1,11 @@
+.auth {
+  @apply .w-full
+}
+
+.auth--overlay {
+  @apply .min-h-screen .absolute .pin-y .pin-x .bg-black .opacity-50 .w-full
+}
+
+.auth--container {
+  @apply .h-screen .relative .flex .flex-col .items-center .justify-center .w-full
+}

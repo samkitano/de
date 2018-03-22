@@ -1,54 +1,74 @@
-.form-container {
-    @apply .bg-white .rounded-b .shadow-lg .w-4/5 .mx-8 .border-t-4 .border-red;
+.form--container {
+  @apply .bg-white .rounded-b .shadow-lg .w-4/5 .mx-8 .border-t-4 .border-red;
 }
 
-.form-container .form {
-    @apply .w-full .max-w-md .p-4;
-    max-height: 80%;
-    overflow-y: auto;
+.form--container .form {
+  @apply .w-full .max-w-md .p-4;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
-.form-group-inline {
-    @apply .flex .flex-wrap .-mx-3
+.form--group--inline {
+  @apply .flex .flex-wrap .-mx-3
 }
 
-.form-group {
-    @apply .w-full .px-3 .mb-6
+.form--group {
+  @apply .w-full .px-3 .mb-6
 }
 
 .label {
-    @apply .block .uppercase .tracking-wide .text-grey-darker .text-xs .font-bold .mb-2
+  @apply .block .uppercase .tracking-wide .text-grey-darker .text-xs .font-bold .mb-2
 }
 
 .input {
-    @apply .appearance-none .block .w-full .bg-grey-lighter .text-grey-darker .border .border-grey-lighter .rounded .py-3 .px-4
+  @apply .appearance-none .block .w-full .bg-grey-lighter .text-grey-darker .border .border-grey-lighter .rounded .py-3 .px-4
 }
 
 .tabs {
-    @apply .list-reset .flex 
+  @apply .list-reset .flex
 }
 
 .tabs .tab {
-    @apply .bg-white .inline-block .py-4 .text-red .font-semibold .w-full  .text-center .bg-grey-lighter 
+  @apply .bg-white .inline-block .py-4 .text-red .font-semibold .w-full  .text-center .bg-grey-lighter
 }
 
 .tabs .li {
-    flex-basis: 50%;
+  flex-basis: 50%;
 }
 
 .tabs .tab:first-child {
-    @apply .text-grey-darker
+  @apply .text-grey-darker
 }
 
 .tabs .tab:hover {
-    @apply .text-red
+  @apply .text-red
 }
 
 .tabs .tab.active {
-    @apply .text-red .bg-white;
-    border-bottom: none;
+  @apply .text-red .bg-white;
+  border-bottom: none;
 }
 
 p.error {
-    @apply .text-red .text-xs .italic
+  @apply .text-red .text-xs .italic .mt-1
+}
+
+.checkbox {
+  @apply .mb-6 .justify-between
+}
+
+.checkbox input {
+  @apply .mr-2
+}
+
+.checkbox span {
+  @apply .text-sm
+}
+
+p.form-info {
+  @apply .text-xs .italic .mt-2
+}
+
+input.error {
+  @apply .border-b .border-red
 }

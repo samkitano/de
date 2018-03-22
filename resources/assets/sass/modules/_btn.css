@@ -1,34 +1,25 @@
 .btn {
-    @apply .py-3 .px-2 .no-underline .rounded
+  @apply .py-3 .px-2 .no-underline .rounded
 }
 
 .btn-outline {
-    @apply .border .border-white
+  @apply .border .border-white
 }
 
 .btn-hamburger {
-    @apply .inline-flex .items-center .justify-center .px-3 .py-2 .border .text-white .border-white .font-bold
+  @apply .inline-flex .items-center .justify-center .px-3 .py-2 .border .text-white .border-white .font-bold
 }
 
 .btn-hamburger:hover {
-    @apply .text-red .border-red
+  @apply .text-red .border-red
 }
 .btn-submit {
-    @apply .bg-red .text-white
+  @apply .bg-red .text-white
 }
 .btn-submit:hover {
-    @apply .bg-red-dark
+  @apply .bg-red-dark
 }
 
 .btn-block {
-    @apply .w-full
-}
-
-.nuxt-link {
-    @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4;
-    background: rgba(255,255,255,0.1)
-}
-
-.nuxt-link:hover {
-    @apply .border-transparent .text-white .bg-red
+  @apply .w-full
 }

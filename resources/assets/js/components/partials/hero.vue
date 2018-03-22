@@ -26,6 +26,6 @@
 
 <style lang="sass">
     .header
-        background: url('/img/main5.jpg') no-repeat center center
+        background: url('/img/main10.jpg') no-repeat center center
         background-size: cover
 </style>
