@@ -1,5 +1,5 @@
 nav.main-nav {
-  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between/* .flex-wrap*/ .p-6 .h-16 .z-10
+  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between .p-6 .h-16 .z-10
 }
 
 nav.main-nav .brand {
@@ -25,19 +25,3 @@ nav.main-nav .brand {
 .main-nav .navbar-right .user-name {
   @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4
 }
-
-/*nav.main-nav .navbar .navbar-right .user-name:hover {*/
-  /*@apply .border-transparent .text-teal .bg-white*/
-/*}*/
-
-/*nav.main-nav .navbar .navbar-left .nav-link {*/
-  /*@apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2*/
-/*}*/
-
-/*nav.main-nav .navbar .navbar-left .nav-link:hover {*/
-  /*@apply .text-red*/
-/*}*/
-
-/*.nav-search {*/
-  /*@apply .ml-1 .bg-transparent .text-white*/
-/*}*/
