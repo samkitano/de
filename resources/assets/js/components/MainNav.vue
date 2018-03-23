@@ -3,7 +3,8 @@
     <div class="brand"></div>
 
     <div class="burger lg:hidden">
-      <button class="btn btn-hamburger"
+      <button class="btn btn-hamburger
+"
               @click="toggleMenu">
         <svg-hamburger/>
       </button>
