@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'access_to' => 'Access to',
+    'access_to' => 'Access to ',
     'change_password' => 'Change Password',
     'change_pw_mistake' =>'You can safely ignore this email if you did not make such request.',
     'disclaimer' => 'If you are not the intended recipient for this email, you can just ignore it. If you keep receiving them, please contact us.',

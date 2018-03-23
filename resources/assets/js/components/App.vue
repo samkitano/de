@@ -4,7 +4,7 @@
 
     <fade-transition>
       <keep-alive>
-        <router-view></router-view>
+        <router-view/>
       </keep-alive>
     </fade-transition>
   </div>

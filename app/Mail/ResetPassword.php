@@ -38,7 +38,7 @@ class ResetPassword extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
-            ->subject(__('mail.access_to').config('app.url'))
+            ->subject(__('passwords.access_to').config('app.url'))
             ->markdown('mails.user.reset-password');
     }
 }

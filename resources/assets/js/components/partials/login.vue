@@ -81,7 +81,7 @@
       },
       endpoint () {
         return this.isForgotPw
-          ? '/password/reset'
+          ? '/password/email'
           : '/login'
       },
       emailError () {

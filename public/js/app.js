@@ -35794,7 +35794,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.isForgotPw ? 'RECUPERAR' : 'LOGIN';
     },
     endpoint: function endpoint() {
-      return this.isForgotPw ? '/password/reset' : '/login';
+      return this.isForgotPw ? '/password/email' : '/login';
     },
     emailError: function emailError() {
       return this.form.email.feedback ? 'input error' : 'input';
