@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Forum from './components/Forum'
 import Entrar from './components/Entrar'
 import Home from './components/Home.vue'
+import RecoverPw from './components/RecoverPw'
 
 let routes = [
   {
@@ -20,6 +21,11 @@ let routes = [
     path: '/forum',
     name: 'forum',
     component: Forum
+  },
+  {
+    path: '/recover/:token/:email',
+    name: 'recover',
+    component: RecoverPw
   }
 ]
 
