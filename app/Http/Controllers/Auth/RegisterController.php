@@ -75,22 +75,34 @@ class RegisterController extends Controller
 
     protected function createNickName($data)
     {
-        $try = $data['first_name'][0].$data['last_name'];
+        $full = $data['first_name'].' '.$data['last_name'];
+        $names = explode(' ', $full);
+        $try = '';
 
-        $found = User::whereNickName($try);
+        for ($i = 0; $i < sizeof($names) - 1; $i++) {
+            $try .= $names[$i][0];
+        }
+
+        $try .= end($names);
+
+        $found = User::whereNickName($try)->count();
 
         if (! $found) {
             return $try;
         }
 
-        $try = $data['first_name'].$data['last_name'][0];
+        $try = $names[0];
 
-        $found = User::whereNickName('$try');
+        for ($i = 1; $i < sizeof($names); $i++) {
+            $try .= $names[$i][0];
+        }
+
+        $found = User::whereNickName($try)->count();
 
         if (! $found) {
             return $try;
         }
 
-        return $try.'-'.microtime(); // fuck off
+        return $try.'-'.str_random(6);
     }
 }

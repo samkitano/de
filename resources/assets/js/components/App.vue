@@ -6,7 +6,8 @@
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-    </fade-transition>  </div>
+    </fade-transition>
+  </div>
 </template>
 
 <script>
