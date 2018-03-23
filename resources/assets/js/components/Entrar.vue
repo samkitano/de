@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <div class="auth">
-      <div class="auth--overlay"/>
+  <div class="auth">
+    <div class="auth--overlay"/>
 
-      <div class="auth--container">
-        <div class="form--container lg:w-2/5 md:w-3/5 md:mx-0">
-          <ul class="tabs">
-            <li class="li">
-              <a @click="showLoginTab = true" :class="loginTabClass" href="#">LOGIN</a>
-            </li>
+    <div class="auth--container">
+      <div class="form--container lg:w-2/5 md:w-3/5 md:mx-0">
+        <ul class="tabs">
+          <li class="li">
+            <a @click="showLoginTab = true" :class="loginTabClass" href="#">LOGIN</a>
+          </li>
 
-            <li class="li">
-              <a @click="showLoginTab = false" :class="registerTabClass" href="#">REGISTAR</a>
-            </li>
-          </ul>
+          <li class="li">
+            <a @click="showLoginTab = false" :class="registerTabClass" href="#">REGISTAR</a>
+          </li>
+        </ul>
 
-          <login v-if="showLoginTab"/>
+        <login v-if="showLoginTab"/>
 
-          <register v-else/>
-        </div>
+        <register v-else/>
       </div>
     </div>
   </div>
