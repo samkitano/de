@@ -147,8 +147,11 @@
 
         axios
           .post(this.endpoint, this.payload)
-          .then(() => {
-            window.location = '/'
+          .then((r) => {
+            this.$swal(`Olá, ${r.data.first_name}!`, 'Estás autenticado.', 'success')
+              .then(() => {
+                window.location = '/'
+              })
           })
           .catch((e) => {
             if (e.response.status === 422) {
