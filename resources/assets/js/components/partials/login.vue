@@ -119,8 +119,7 @@
         isForgotPw: false,
         payload: {
           _method: 'POST'
-        },
-        user: {}
+        }
       }
     },
 
@@ -148,8 +147,7 @@
 
         axios
           .post(this.endpoint, this.payload)
-          .then((r) => {
-            // this.user = r.data.user
+          .then(() => {
             window.location = '/'
           })
           .catch((e) => {

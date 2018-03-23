@@ -5248,30 +5248,6 @@ nav.main-nav .brand {
   margin-top: 1rem;
 }
 
-/*nav.main-nav .navbar .navbar-right .user-name:hover {*/
-
-/*@apply .border-transparent .text-teal .bg-white*/
-
-/*}*/
-
-/*nav.main-nav .navbar .navbar-left .nav-link {*/
-
-/*@apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2*/
-
-/*}*/
-
-/*nav.main-nav .navbar .navbar-left .nav-link:hover {*/
-
-/*@apply .text-red*/
-
-/*}*/
-
-/*.nav-search {*/
-
-/*@apply .ml-1 .bg-transparent .text-white*/
-
-/*}*/
-
 .auth {
   width: 100%;
 }

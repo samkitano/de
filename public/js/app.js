@@ -16353,7 +16353,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: {
     user: {
       required: true,
-      type: Object
+      type: Object | Boolean
     }
   }
 });
@@ -18138,7 +18138,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: {
     user: {
       required: true,
-      type: Object
+      type: Object | Boolean
     }
   }
 });
@@ -18681,8 +18681,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       isForgotPw: false,
       payload: {
         _method: 'POST'
-      },
-      user: {}
+      }
     };
   },
 
@@ -18710,8 +18709,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       this.resetErrors();
 
-      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(this.endpoint, this.payload).then(function (r) {
-        // this.user = r.data.user
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(this.endpoint, this.payload).then(function () {
         window.location = '/';
       }).catch(function (e) {
         if (e.response.status === 422) {
@@ -36145,7 +36143,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(109)
 /* template */
 var __vue_template__ = __webpack_require__(81)
 /* template functional */
@@ -36193,55 +36191,110 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "register" }, [
-      _c("form", { staticClass: "form mt-4" }, [
+  return _c("section", { staticClass: "register" }, [
+    _c(
+      "form",
+      { staticClass: "form mt-4", attrs: { onsubmit: "submitForm" } },
+      [
         _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.botShit.value,
+              expression: "form.botShit.value"
+            }
+          ],
           staticClass: "hidden",
           attrs: {
             type: "text",
             placeholder: "Não Preencher!",
             id: "subscribe",
             name: "subscribe"
+          },
+          domProps: { value: _vm.form.botShit.value },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form.botShit, "value", $event.target.value)
+            }
           }
         }),
         _vm._v(" "),
         _c("div", { staticClass: "form--group--inline" }, [
           _c("div", { staticClass: "form--group md:w-1/2 md:mb-0" }, [
-            _c("label", { staticClass: "label", attrs: { for: "name" } }, [
-              _vm._v("Nome")
-            ]),
+            _c(
+              "label",
+              { staticClass: "label", attrs: { for: "first_name" } },
+              [_vm._v("Nome")]
+            ),
             _vm._v(" "),
             _c("input", {
-              staticClass: "input",
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.first_name.value,
+                  expression: "form.first_name.value"
+                }
+              ],
+              ref: "first_name",
+              class: _vm.firstNameError,
               attrs: {
-                id: "name",
+                id: "first_name",
                 type: "text",
                 placeholder: "Francisco",
                 autofocus: ""
+              },
+              domProps: { value: _vm.form.first_name.value },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form.first_name, "value", $event.target.value)
+                }
               }
             }),
             _vm._v(" "),
-            _c("p", { staticClass: "error" })
+            _c("p", { staticClass: "error" }, [
+              _vm._v(_vm._s(_vm.form.first_name.feedback))
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form--group md:w-1/2" }, [
-            _c("label", { staticClass: "label", attrs: { for: "surname" } }, [
+            _c("label", { staticClass: "label", attrs: { for: "last_name" } }, [
               _vm._v("Apelido")
             ]),
             _vm._v(" "),
             _c("input", {
-              staticClass: "input",
-              attrs: { id: "surname", type: "text", placeholder: "Martins" }
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.last_name.value,
+                  expression: "form.last_name.value"
+                }
+              ],
+              ref: "last_name",
+              class: _vm.lastNameError,
+              attrs: { id: "last_name", type: "text", placeholder: "Martins" },
+              domProps: { value: _vm.form.last_name.value },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form.last_name, "value", $event.target.value)
+                }
+              }
             }),
             _vm._v(" "),
-            _c("p", { staticClass: "error" })
+            _c("p", { staticClass: "error" }, [
+              _vm._v(_vm._s(_vm.form.last_name.feedback))
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -36252,15 +36305,35 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("input", {
-              staticClass: "input",
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.email.value,
+                  expression: "form.email.value"
+                }
+              ],
+              ref: "email",
+              class: _vm.emailError,
               attrs: {
                 id: "email",
                 type: "email",
                 placeholder: "f.martins@exemplo.com"
+              },
+              domProps: { value: _vm.form.email.value },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form.email, "value", $event.target.value)
+                }
               }
             }),
             _vm._v(" "),
-            _c("p", { staticClass: "error" })
+            _c("p", { staticClass: "error" }, [
+              _vm._v(_vm._s(_vm.form.email.feedback))
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -36271,15 +36344,35 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("input", {
-              staticClass: "input",
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.password.value,
+                  expression: "form.password.value"
+                }
+              ],
+              ref: "password",
+              class: _vm.pwError,
               attrs: {
                 id: "password",
                 type: "password",
                 placeholder: "******************"
+              },
+              domProps: { value: _vm.form.password.value },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form.password, "value", $event.target.value)
+                }
               }
             }),
             _vm._v(" "),
-            _c("p", { staticClass: "error" })
+            _c("p", { staticClass: "error" }, [
+              _vm._v(_vm._s(_vm.form.password.feedback))
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -36292,15 +36385,39 @@ var staticRenderFns = [
             ),
             _vm._v(" "),
             _c("input", {
-              staticClass: "input",
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.password_confirmation.value,
+                  expression: "form.password_confirmation.value"
+                }
+              ],
+              ref: "password_confirmation",
+              class: _vm.pwConfirmError,
               attrs: {
                 id: "password_confirmation",
                 type: "password",
                 placeholder: "******************"
+              },
+              domProps: { value: _vm.form.password_confirmation.value },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.form.password_confirmation,
+                    "value",
+                    $event.target.value
+                  )
+                }
               }
             }),
             _vm._v(" "),
-            _c("p", { staticClass: "error" })
+            _c("p", { staticClass: "error" }, [
+              _vm._v(_vm._s(_vm.form.password_confirmation.feedback))
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -36309,15 +36426,22 @@ var staticRenderFns = [
             "button",
             {
               staticClass: "btn btn-submit btn-block",
-              attrs: { type: "submit" }
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.submitForm($event)
+                }
+              }
             },
             [_vm._v("REGISTAR")]
           )
         ])
-      ])
-    ])
-  }
-]
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -41551,6 +41675,247 @@ exports.push([module.i, "\n.mUl {\n  position: absolute;\n  left: 0;\n  top: 60p
 
 // exports
 
+
+/***/ }),
+/* 109 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {
+    firstNameError: function firstNameError() {
+      return this.form.first_name.feedback ? 'input error' : 'input';
+    },
+    lastNameError: function lastNameError() {
+      return this.form.last_name.feedback ? 'input error' : 'input';
+    },
+    emailError: function emailError() {
+      return this.form.email.feedback ? 'input error' : 'input';
+    },
+    pwError: function pwError() {
+      return this.form.password.feedback ? 'input error' : 'input';
+    },
+    pwConfirmError: function pwConfirmError() {
+      return this.form.password_confirmation.feedback ? 'input error' : 'input';
+    }
+  },
+
+  data: function data() {
+    return {
+      form: {
+        first_name: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        last_name: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        email: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        password: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        password_confirmation: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        botShit: {
+          value: '',
+          state: '',
+          feedback: ''
+        }
+      },
+      payload: {
+        _method: 'POST'
+      }
+    };
+  },
+
+
+  methods: {
+    submitForm: function submitForm() {
+      if (this.form.botShit.value !== '') {
+        return false;
+      }
+
+      this.payload.first_name = this.form.first_name.value;
+      this.payload.last_name = this.form.last_name.value;
+      this.payload.email = this.form.email.value;
+      this.payload.password = this.form.password.value;
+      this.payload.password_confirmation = this.form.password_confirmation.value;
+
+      this.postData();
+    },
+    postData: function postData() {
+      var _this = this;
+
+      this.resetErrors();
+
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/register', this.payload).then(function () {
+        window.location = '/';
+      }).catch(function (e) {
+        if (e.response.status === 422) {
+          _this.showValidationErrors(e.response.data.errors);
+        }
+      });
+    },
+    resetErrors: function resetErrors() {
+      for (var field in this.form) {
+        if (this.form[field].hasOwnProperty('feedback')) {
+          this.form[field].feedback = '';
+        }
+      }
+    },
+    resetForm: function resetForm() {
+      this.form = {
+        first_name: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        last_name: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        email: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        password: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        password_confirmation: {
+          value: '',
+          state: '',
+          feedback: ''
+        },
+        botShit: {
+          value: '',
+          state: '',
+          feedback: ''
+        }
+      };
+    },
+    showValidationErrors: function showValidationErrors(errors) {
+      var firstError = void 0;
+
+      for (var field in errors) {
+        if (firstError === undefined) {
+          firstError = field;
+        }
+
+        if (this.form.hasOwnProperty(field)) {
+          this.form[field].feedback = Object(__WEBPACK_IMPORTED_MODULE_1_lodash__["head"])(errors[field]);
+        }
+      }
+      this.$refs[firstError].focus();
+    }
+  }
+});
 
 /***/ })
 /******/ ]);

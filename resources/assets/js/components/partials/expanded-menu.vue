@@ -67,7 +67,7 @@
     props: {
       user: {
         required: true,
-        type: Object
+        type: Object|Boolean
       }
     }
   }

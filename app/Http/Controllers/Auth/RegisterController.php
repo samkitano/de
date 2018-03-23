@@ -49,8 +49,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'first_name' => 'required|string|max:150',
+            'last_name' => 'required|string|max:150',
+            'email' => 'required|string|email|max:150|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -64,9 +65,32 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'nick_name' => $this->createNickName($data),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function createNickName($data)
+    {
+        $try = $data['first_name'][0].$data['last_name'];
+
+        $found = User::whereNickName($try);
+
+        if (! $found) {
+            return $try;
+        }
+
+        $try = $data['first_name'].$data['last_name'][0];
+
+        $found = User::whereNickName('$try');
+
+        if (! $found) {
+            return $try;
+        }
+
+        return $try.'-'.microtime(); // fuck off
     }
 }
