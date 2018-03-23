@@ -1,5 +1,5 @@
 .btn {
-  @apply .py-3 .px-2 .no-underline .rounded
+  @apply .py-3 .px-2 .no-underline .rounded .text-white
 }
 
 .btn-outline {
@@ -7,19 +7,31 @@
 }
 
 .btn-hamburger {
-  @apply .inline-flex .items-center .justify-center .px-3 .py-2 .border .text-white .border-white .font-bold
+  @apply .inline-flex .items-center .justify-center .px-3 .py-2 .border .text-white .border-white .font-bold;
+  z-index: 9999;
 }
 
 .btn-hamburger:hover {
   @apply .text-red .border-red
 }
+
 .btn-submit {
   @apply .bg-red .text-white
 }
+
 .btn-submit:hover {
   @apply .bg-red-dark
 }
 
 .btn-block {
   @apply .w-full
+}
+
+.btn-transparent {
+  @apply .border-white .border;
+  background: rgba(255,255,255,0.1)
+}
+
+.btn-transparent:hover {
+  @apply .bg-red .border-transparent
 }

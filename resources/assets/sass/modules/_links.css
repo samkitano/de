@@ -1,24 +1,23 @@
 a, .btn, .button{
   text-decoration: none;
-  -webkit-transition: all .25s ease;
-  -moz-transition: all .25s ease;
-  -o-transition: all .25s ease;
-  transition: all .25s ease;
+}
+
+.btn, .button{
+  text-decoration: none;
+  -webkit-transition: all .15s;
+  -moz-transition: all .15s;
+  -o-transition: all .15s;
+  transition: all .15s;
 }
 
 .nav-link {
-  @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2
+  @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2 .px-2
 }
 
 .nav-link:hover {
-  @apply .text-red
-}
-
-.router-link {
-  @apply .inline-block .text-sm .px-4 .py-2 .leading-none .border .rounded .text-white .border-white .mt-4;
-  background: rgba(255,255,255,0.1)
-}
-
-.router-link:hover {
-  @apply .border-transparent .text-white .bg-red
+  @apply .border-b-4 .border-red .text-white;
+  -webkit-transition: all 0s ease-out;
+  -moz-transition: all 0s ease-out;
+  -o-transition: all 0s ease-out;
+  transition: all 0s ease-out;
 }

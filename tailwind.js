@@ -57,11 +57,11 @@ let colors = {
   'white': '#ffffff',
 
   'red-darkest': '#3b0d0c',
-  'red-darker': '#621b18',
-  'red-dark': '#cc1f1a',
-  'red': '#e3342f',
-  'red-light': '#ef5753',
-  'red-lighter': '#f9acaa',
+  'red-darker': '#5E0007',
+  'red-dark': '#88161E',
+  'red': '#ad343e',
+  'red-light': '#CF5D65',
+  'red-lighter': '#F89AA1',
   'red-lightest': '#fcebea',
 
   'orange-darkest': '#462a16',

@@ -35106,7 +35106,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(67)
+  __webpack_require__(110)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -35151,46 +35151,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(68);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("462ddef8", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ea1f444\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mobile-menu.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ea1f444\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mobile-menu.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.mUl {\n  position: absolute;\n  left: 0;\n  top: 60px;\n  padding: 32px;\n  padding: 32px;\n  padding: 2rem;\n  width: 100%;\n}\n.mLi {\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 67 */,
+/* 68 */,
 /* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -35206,6 +35168,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__svg_svg_magnify__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__svg_svg_magnify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__svg_svg_magnify__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_transitions__ = __webpack_require__(6);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -35303,13 +35273,14 @@ var render = function() {
     [
       _c("collapse-transition", [
         _vm.menuIsVisible
-          ? _c("ul", { staticClass: "mUl" }, [
-              _c(
-                "li",
-                { staticClass: "mLi" },
-                [
-                  _c("svg-magnify"),
-                  _vm._v(" "),
+          ? _c(
+              "ul",
+              {
+                staticClass:
+                  "flex flex-row mUl bg-white list-reset text-grey-dark shadow-lg"
+              },
+              [
+                _c("li", { staticClass: "m-search mLi text-grey-dark" }, [
                   _c("input", {
                     directives: [
                       {
@@ -35319,7 +35290,8 @@ var render = function() {
                         expression: "searchText"
                       }
                     ],
-                    staticClass: "ml-1 bg-transparent text-white",
+                    staticClass:
+                      "bg-transparent w-full py-3 px-4 bg-grey-lighter text-grey-darker",
                     attrs: { type: "text", placeholder: "Pesquisa..." },
                     domProps: { value: _vm.searchText },
                     on: {
@@ -35331,52 +35303,71 @@ var render = function() {
                       }
                     }
                   })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mLi" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "nav-link", attrs: { to: "/" } },
-                    [
-                      _c("svg-home"),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "ml-1" }, [
-                        _vm._v("Página Inicial")
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mLi" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link lg:inline-flex lg:mt-0",
-                      attrs: { to: "/forum" }
-                    },
-                    [
-                      _c("svg-comment"),
-                      _c("span", { staticClass: "ml-1" }, [_vm._v("Fórum")])
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "mLi" })
-            ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "mLi mt-2 py-3" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link-sm", attrs: { to: "/" } },
+                      [
+                        _c("svg-home"),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "ml-1" }, [_vm._v("Início")])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "mLi mt-2 py-3" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link-sm lg:inline-flex lg:mt-0",
+                        attrs: { to: "/forum" }
+                      },
+                      [
+                        _c("svg-comment"),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "ml-1" }, [_vm._v("Fórum")])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "mLi mt-2  py-3" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link-sm lg:inline-flex lg:mt-0",
+                        attrs: { to: "/forum" }
+                      },
+                      [
+                        _c("svg-comment"),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "ml-1" }, [_vm._v("Artigos")])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "mLi" })
+              ]
+            )
           : _vm._e()
       ])
     ],
@@ -36968,7 +36959,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.header {\n  background: url(\"/img/main10.jpg\") no-repeat center center;\n  background-size: cover;\n}\n", ""]);
+exports.push([module.i, "\n.header {\n  background: url(\"/img/main10.jpg\") no-repeat center center;\n  background-size: cover;\n}\n.title {\n  background: rgba(255, 255, 255, .82);\n  color: #000;\n  mix-blend-mode: screen;\n}\n", ""]);
 
 // exports
 
@@ -37032,8 +37023,8 @@ var staticRenderFns = [
             "header-text h-screen relative flex flex-col items-center justify-center w-full text-white"
         },
         [
-          _c("h1", { staticClass: "title text-5xl mb-4" }, [
-            _vm._v("\n            LOREM IPSUM\n        ")
+          _c("h1", { staticClass: "title text-5xl mb-4 py-2 px-8" }, [
+            _vm._v("\n            DireitoEscolar\n        ")
           ]),
           _vm._v(" "),
           _c(
@@ -37049,11 +37040,11 @@ var staticRenderFns = [
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-4" }, [
+          _c("div", [
             _c(
-              "a",
+              "button",
               {
-                staticClass: "btn btn-outline p-4 mt-2 text-white",
+                staticClass: "btn btn-transparent lg:mt-0",
                 attrs: { href: "#" }
               },
               [_vm._v("CRIA UMA QUESTÃO")]
@@ -41914,6 +41905,49 @@ var index_esm = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(111);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("d3e4bea2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ea1f444\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mobile-menu.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6ea1f444\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js?indentedSyntax!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./mobile-menu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.mUl {\n  position: absolute;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n  -ms-flex-direction: row;\n      flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  left: 0;\n  top: 0;\n  padding: 32px;\n  padding: 32px;\n  padding: 2rem;\n  width: 100%;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n}\n.mUl .mLi {\n  text-align: center;\n  border-radius: 2px;\n  background: #f1f5f8;\n  -ms-flex-preferred-size: 29%;\n  flex-basis: 29%;\n  -webkit-box-pack: justify;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n}\n.mUl .mLi:hover {\n  background: #ad343e;\n}\n.mUl .mLi:hover > .nav-link-sm {\n  color: #fff;\n}\n.mUl .nav-link-sm {\n  color: #8795a1;\n}\n.mUl .nav-link-sm:hover {\n  color: #fff;\n}\n.mUl .m-search {\n  -ms-flex-preferred-size: 100%;\n  flex-basis: 100%;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
