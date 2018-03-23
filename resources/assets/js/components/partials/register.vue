@@ -174,7 +174,10 @@
         axios
           .post('/register', this.payload)
           .then(() => {
-            window.location = '/'
+            this.$swal(`Obrigado por te registares, ${this.first_name}.`, 'Esperamos que desfrutes do nosso site!', 'success')
+              .then(() => {
+                window.location = '/'
+              })
           })
           .catch((e) => {
             if (e.response.status === 422) {
