@@ -17,6 +17,7 @@
                  type="email"
                  ref="email"
                  autofocus
+                 required
                  placeholder="f.martins@exemplo.com"
                  v-model="form.email.value"
           >
@@ -34,6 +35,7 @@
                    id="password"
                    ref="password"
                    placeholder="******************"
+                   required
                    v-model="form.password.value">
             <p class="error">{{ form.password.feedback }}</p>
           </div>
@@ -60,6 +62,7 @@
       <div>
         <button type="submit"
                 class="btn btn-submit btn-block"
+                :disabled="working"
                 @click.prevent="submitForm">
           {{ submitText }}
         </button>
@@ -119,12 +122,15 @@
         isForgotPw: false,
         payload: {
           _method: 'POST'
-        }
+        },
+        working: false
       }
     },
 
     methods: {
       submitForm () {
+        this.working = true
+
         if (this.form.botShit.value !== '') {
           return false
         }
@@ -154,6 +160,8 @@
               })
           })
           .catch((e) => {
+            this.working = false
+
             if (e.response.status === 422) {
               this.showValidationErrors(e.response.data.errors)
             }
