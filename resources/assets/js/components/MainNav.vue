@@ -37,13 +37,6 @@
     },
 
     computed: {
-      // menuVisibility () {
-      //   let common = 'w-full block flex-grow lg:visible lg:flex lg:items-center lg:w-auto'
-      //
-      //   return this.menuIsVisible
-      //     ? common
-      //     : `${common} hidden`
-      // },
       fullName () {
         return `${this.user.first_name} ${this.user.last_name}`
       }
