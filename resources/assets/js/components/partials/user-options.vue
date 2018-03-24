@@ -30,14 +30,6 @@
       CollapseTransition
     },
 
-    computed: {
-      optionsVisibility () {
-        return this.optionsIsVisible
-          ? ''
-          : ''
-      }
-    },
-
     data () {
       return {
         optionsIsVisible: false
@@ -49,7 +41,10 @@
         axios
           .post('/logout')
           .then(() => {
-            window.location = '/'
+            this.$swal('Até à próxima!', 'Terminaste a tua sessão', 'success')
+              .then(() => {
+                window.location = '/'
+              })
           })
       },
 
