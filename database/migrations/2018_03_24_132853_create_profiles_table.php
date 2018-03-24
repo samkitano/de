@@ -19,7 +19,6 @@ class CreateProfilesTable extends Migration
             $table->integer('xp')->default(10);
             $table->string('bio')->nullable();
             $table->boolean('use_nick')->default(false);
-            $table->boolean('show_age')->default(false);
             $table->boolean('changed_nick')->default(false);
             $table->timestamps();
         });
