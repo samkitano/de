@@ -28,7 +28,7 @@
       <user-options/>
     </div>
 
-    <div class="nav-right" v-else>
+    <div class="navbar-right" v-else>
       <router-link class="router-link lg:mt-0" to="/entrar">
         Entrar
       </router-link>
