@@ -167,7 +167,13 @@
               return false
             }
 
-            this.$swal(`Olá, ${r.data.first_name}!`, 'A tua sessão foi iniciada.', 'success')
+            this.$swal({
+              title: `Olá, ${r.data.first_name}!`,
+              text: 'A tua sessão foi iniciada.',
+              type: 'success',
+              imageUrl: r.data.gravatar,
+              imageWidth: 150
+            })
               .then(() => {
                 window.location = '/'
               })
