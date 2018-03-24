@@ -18,6 +18,7 @@
                  type="text"
                  placeholder="Francisco"
                  autofocus
+                 required
                  v-model="form.first_name.value">
           <p class="error">{{ form.first_name.feedback }}</p>
         </div>
@@ -29,6 +30,7 @@
                  ref="last_name"
                  type="text"
                  placeholder="Martins"
+                 required
                  v-model="form.last_name.value">
           <p class="error">{{ form.last_name.feedback }}</p>
         </div>
@@ -42,6 +44,7 @@
                  ref="email"
                  type="email"
                  placeholder="f.martins@exemplo.com"
+                 required
                  v-model="form.email.value">
           <p class="error">{{ form.email.feedback }}</p>
         </div>
@@ -55,6 +58,7 @@
                  ref="password"
                  type="password"
                  placeholder="******************"
+                 required
                  v-model="form.password.value">
           <p class="error">{{ form.password.feedback }}</p>
         </div>
@@ -68,13 +72,17 @@
                  ref="password_confirmation"
                  type="password"
                  placeholder="******************"
+                 required
                  v-model="form.password_confirmation.value">
           <p class="error">{{ form.password_confirmation.feedback }}</p>
         </div>
       </div>
 
       <div>
-        <button @click.prevent="submitForm" type="submit" class="btn btn-submit btn-block">REGISTAR</button>
+        <button @click.prevent="submitForm"
+                type="submit"
+                :disabled="working"
+                class="btn btn-submit btn-block">REGISTAR</button>
       </div>
     </form>
   </section>
@@ -149,12 +157,15 @@
         },
         payload: {
           _method: 'POST'
-        }
+        },
+        working: false
       }
     },
 
     methods: {
       submitForm () {
+        this.working = true
+
         if (this.form.botShit.value !== '') {
           return false
         }
@@ -180,6 +191,8 @@
               })
           })
           .catch((e) => {
+            this.working = false
+
             if (e.response.status === 422) {
               this.showValidationErrors(e.response.data.errors)
             }
