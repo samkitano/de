@@ -68,14 +68,14 @@
               <button type="submit"
                       class="btn btn-submit btn-block"
                       :disabled="working"
-                      @click.prevent="submitForm">Gravar</button>
+                      v-html="btnTxt"
+                      @click.prevent="submitForm"></button>
             </div>
           </form>
         </section>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -88,6 +88,11 @@
     },
 
     computed: {
+      btnTxt () {
+        return this.working
+          ? this.spinner // mixin
+          : 'Gravar'
+      },
       emailError () {
         return this.form.email.feedback
           ? 'input error'
