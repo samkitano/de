@@ -41,7 +41,7 @@
         axios
           .post('/logout')
           .then(() => {
-            this.$swal('Até à próxima!', 'Terminaste a tua sessão', 'success')
+            this.$swal('Até à próxima!', 'A tua sessão foi terminada.', 'success')
               .then(() => {
                 window.location = '/'
               })
