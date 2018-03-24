@@ -10,7 +10,7 @@ import VueRouter from 'vue-router'
 import VueSweetalert2 from 'vue-sweetalert2'
 import Vuex from 'vuex'
 
-// require('./mixins')
+require('./mixins')
 
 let vStore = store()
 let token = document.head.querySelector('meta[name="csrf-token"]')
