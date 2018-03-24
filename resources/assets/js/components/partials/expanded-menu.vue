@@ -22,7 +22,7 @@
 
     <div class="navbar-right" v-if="user">
       <div class="mr-2">
-        <a href="#" class="lg:mt-0">{{ fullName }}</a>
+        <a href="#" class="lg:mt-0">{{ user.name }}</a>
       </div>
 
       <user-options/>
@@ -48,12 +48,6 @@
       svgHome,
       svgComment,
       svgMagnify
-    },
-
-    computed: {
-      fullName () {
-        return `${this.user.first_name} ${this.user.last_name}`
-      }
     },
 
     data () {
