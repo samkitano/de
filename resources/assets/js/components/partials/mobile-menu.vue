@@ -32,8 +32,8 @@
                     </router-link>
                 </li>
 
-                <li class="mLi">
-
+                <li class="mLi mt-2  py-3">
+                    <router-link class="lg:mt-0 w-full" to="/profile">{{ user.name }}</router-link>
                 </li>
             </ul>
         </collapse-transition>
