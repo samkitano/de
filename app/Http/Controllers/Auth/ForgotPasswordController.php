@@ -42,38 +42,21 @@ class ForgotPasswordController extends Controller
         return Auth::guard('front');
     }
 
-    /**
-     * Get the broker to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\PasswordBroker
-     */
+    /** @inheritdoc */
     public function broker()
     {
         return Password::broker('front');
     }
 
-    /**
-     * Get the response for a successful password reset link.
-     *
-     * @param  string  $response
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
-     */
+    /** @inheritdoc */
     protected function sendResetLinkResponse($response)
     {
         return response()->json(['status' => trans($response)], 200);
     }
 
-    /**
-     * Get the response for a failed password reset link.
-     *
-     * @param Request $request
-     * @param  string $response
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
-     */
+    /** @inheritdoc */
     protected function sendResetLinkFailedResponse(Request $request, $response)
     {
-        return response()->json(['error' => trans($response)], 422);
+        return response()->json(['errors' => ['email' => trans($response)]], 422);
     }
 }
