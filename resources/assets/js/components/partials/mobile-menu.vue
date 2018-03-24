@@ -96,7 +96,7 @@
         flex-direction: row
         flex-wrap: wrap
         left: 0
-        top: 0
+        top: 4rem
         padding: 2rem
         width: 100%
         justify-content: space-between
