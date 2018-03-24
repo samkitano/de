@@ -22,7 +22,7 @@
 
     <div class="navbar-right" v-if="user">
       <div class="mr-2">
-        <a href="#" class="lg:mt-0">{{ user.name }}</a>
+        <router-link class="lg:mt-0" to="/profile">{{ user.name }}</router-link>
       </div>
 
       <user-options/>
