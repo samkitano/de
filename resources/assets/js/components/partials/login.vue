@@ -63,9 +63,8 @@
         <button type="submit"
                 class="btn btn-submit btn-block"
                 :disabled="working"
-                @click.prevent="submitForm">
-          {{ submitText }}
-        </button>
+                v-html="btnTxt"
+                @click.prevent="submitForm"></button>
       </div>
     </form>
   </section>
@@ -77,6 +76,11 @@
 
   export default {
     computed: {
+      btnTxt () {
+        return this.working
+          ? this.spinner // mixin
+          : this.submitText
+      },
       submitText () {
         return this.isForgotPw
           ? 'RECUPERAR'
