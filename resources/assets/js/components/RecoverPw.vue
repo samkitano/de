@@ -79,6 +79,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     beforeMount () {
       this.form.email.value = this.$route.params.email
@@ -127,6 +129,9 @@
             feedback: ''
           }
         },
+        payload: {
+          _method: 'POST'
+        },
         token: '',
         working: false
       }
@@ -154,9 +159,9 @@
         this.resetErrors()
 
         axios
-          .post(this.endpoint, this.payload)
-          .then((r) => {
-            this.$swal(`Olá, ${r.data.first_name}!`, 'A tua nova password foi registada.', 'success')
+          .post('/password/reset', this.payload)
+          .then(() => {
+            this.$swal(`Feito!`, 'A tua nova password foi registada, e a tua sessão iniciada.', 'success')
               .then(() => {
                 window.location = '/'
               })
