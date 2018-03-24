@@ -2,7 +2,7 @@
   <div class="auth">
     <div class="auth--overlay"/>
 
-    <div class="auth--container">
+    <div class="auth--container" v-if="!user">
       <div class="form--container lg:w-2/5 md:w-3/5 md:mx-0">
         <ul class="tabs">
           <li class="li">
@@ -19,23 +19,49 @@
         <register v-else/>
       </div>
     </div>
+
+    <div class="auth--container" v-else>
+      <div class="form--container lg:w-2/5 md:w-3/5 md:mx-0">
+        <div class="tabs">
+          <div class="w-full text-center bg-grey-light">
+            <a @click.prevent="noop" class="tab active" href="#">UHHH?</a>
+          </div>
+        </div>
+
+        <div class="text-center p-4">
+          <h2 class="text-2xl">Dude, já estás autenticad@!</h2>
+          <div class="go-home-you-are-drunk mt-4">
+            <router-link to="/"><svg-home width="4rem"/></router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import login from './partials/login'
+  import svgHome from './svg/_svg-home'
   import register from './partials/register'
 
+  const wuser = window.user
+
   export default {
+    beforeMount () {
+      this.user = wuser
+    },
+
     components: {
       login,
-      register
+      register,
+      svgHome
     },
 
     data () {
       return {
         showLoginTab: true,
-        forgot: false
+        forgot: false,
+        user: false
       }
     },
 
