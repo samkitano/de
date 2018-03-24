@@ -70,6 +70,13 @@ class User extends Authenticatable
     protected $dates = ['last_active'];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['gravatar', 'name'];
+
+    /**
      * Profile relationship
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -96,6 +103,26 @@ class User extends Authenticatable
     {
         return 'https://www.gravatar.com/avatar/'.md5($this->email).'?d=mm&s=256';
     }
+
+    /**
+     * Returns user last recorded activity date
+     *
+     * @return string
+     */
+//    public function getLastActiveAttribute(): string
+//    {
+//        if ($this->last_active === null || $this->last_active->year == -1) {
+//            return 'nunca';
+//        }
+//
+//        $lastActivityDate = humanize_diff_date($this->last_active);
+//
+//        if (str_contains($lastActivityDate, 'second')) {
+//            $lastActivityDate = 'Há momentos';
+//        }
+//
+//        return $lastActivityDate;
+//    }
 
     /**
      * @return User
