@@ -11,7 +11,10 @@
     @apply .bg-orange-lighter .border-orange .text-orange-darkest
 }
 .alert-info, .alert-default {
-    @apply .bg-teal-light .border-teal .text-white
+    @apply .bg-teal .border-teal-light .text-teal-lightest .flex .items-center
+}
+.alert-icon {
+    @apply .self-center
 }
 .alert .alert-outer {
     @apply .flex
