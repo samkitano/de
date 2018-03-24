@@ -23,6 +23,10 @@
   @apply .bg-red-dark
 }
 
+.btn-submit:disabled {
+  @apply .bg-red-dark .cursor-not-allowed
+}
+
 .btn-block {
   @apply .w-full
 }
