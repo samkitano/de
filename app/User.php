@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Mail\ResetPassword;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -67,6 +68,16 @@ class User extends Authenticatable
     protected $dates = ['last_active'];
 
     /**
+     * Profile relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    /**
      * @return string
      */
     public function getNameAttribute(): string
@@ -75,9 +86,19 @@ class User extends Authenticatable
     }
 
     /**
+     * Returns user gravatar
+     *
+     * @return string
+     */
+    public function getGravatarAttribute(): string
+    {
+        return 'https://www.gravatar.com/avatar/'.md5($this->email).'?d=mm&s=256';
+    }
+
+    /**
      * @return User
      */
-    public function registerLastActivity(): self
+    public function registerLastActivity(): User
     {
         $this->last_active = Carbon::now();
 
