@@ -11,7 +11,7 @@
         <svg-comment/><span class="ml-1">Fórum</span>
       </router-link>
 
-      <div class="nav-link lg:inline-flex lg:mt-0">
+      <div class="nav-link search lg:inline-flex lg:mt-0">
         <svg-magnify/>
         <input class="ml-1 bg-transparent text-white"
                type="text"
