@@ -40,6 +40,15 @@ class Profile extends Model
         'user_id', 'xp', 'bio', 'use_nick', 'show_age', 'changed_nick',
     ];
 
+    protected $appends = [
+        'canChangeNick',
+    ];
+
+    public function getCanChangeNickAttribute()
+    {
+        return $this->canChangeNick();
+    }
+
     /**
      * User Relationship
      *
@@ -48,5 +57,10 @@ class Profile extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function canChangeNick()
+    {
+        return $this->xp > 50 && ! $this->changed_nick;
     }
 }
