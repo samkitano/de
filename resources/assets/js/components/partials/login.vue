@@ -154,7 +154,16 @@
         axios
           .post(this.endpoint, this.payload)
           .then((r) => {
-            this.$swal(`Olá, ${r.data.first_name}!`, 'Estás autenticado.', 'success')
+            if (this.isForgotPw) {
+              this.$swal(`Verifica o teu email!`, r.data.status, 'success')
+                .then(() => {
+                  window.location = '/'
+                })
+
+              return false
+            }
+
+            this.$swal(`Olá, ${r.data.first_name}!`, 'A tua sessão foi iniciada.', 'success')
               .then(() => {
                 window.location = '/'
               })
