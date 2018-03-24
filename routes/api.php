@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('profile/{id}', 'Api\\UsersController@show');
+Route::patch('profile/{id}', 'Api\\UsersController@update');
