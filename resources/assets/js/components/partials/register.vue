@@ -82,7 +82,8 @@
         <button @click.prevent="submitForm"
                 type="submit"
                 :disabled="working"
-                class="btn btn-submit btn-block">REGISTAR</button>
+                v-html="btnTxt"
+                class="btn btn-submit btn-block"></button>
       </div>
     </form>
   </section>
@@ -94,6 +95,11 @@
 
   export default {
     computed: {
+      btnTxt () {
+        return this.working
+          ? this.spinner // mixin
+          : 'REGISTAR'
+      },
       firstNameError () {
         return this.form.first_name.feedback
           ? 'input error'
