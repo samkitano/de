@@ -20,9 +20,9 @@
       </div>
     </div>
 
-    <div class="navbar-right" v-if="user">
+    <div class="navbar-right" v-if="$store.state.user">
       <div class="mr-2">
-        <router-link class="lg:mt-0" to="/profile">{{ user.name }}</router-link>
+        <router-link class="lg:mt-0" to="/profile">{{ $store.state.user.name }}</router-link>
       </div>
 
       <user-options/>
@@ -57,12 +57,5 @@
     },
 
     name: 'expandedMenu',
-
-    props: {
-      user: {
-        required: true,
-        type: Object|Boolean
-      }
-    }
   }
 </script>
