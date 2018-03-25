@@ -9,9 +9,9 @@
       </button>
     </div>
 
-    <expanded-menu :user="user"/>
+    <expanded-menu/>
 
-    <mobile-menu :user="user"/>
+    <mobile-menu/>
   </nav>
 </template>
 
@@ -21,25 +21,11 @@
   import expandedMenu from './partials/expanded-menu'
   import mobileMenu from './partials/mobile-menu'
 
-  const wuser = window.user
-
   export default {
     components: {
       svgHamburger,
       expandedMenu,
       mobileMenu
-    },
-
-    data () {
-      return {
-        user: JSON.parse(wuser)
-      }
-    },
-
-    computed: {
-      fullName () {
-        return `${this.user.first_name} ${this.user.last_name}`
-      }
     },
 
     methods: {
