@@ -2,7 +2,7 @@
   <section class="user-profile">
     <div class="container mx-auto mt-16 p-4">
       <fade-transition>
-        <div class="profile mt-4" v-if="profile">
+        <div class="profile mt-4" v-if="user">
           <div class="alert alert-info mb-4">
             <div class="alert--icon">
               <svg-info width="4rem"></svg-info>
@@ -28,7 +28,7 @@
               <user-nick-name/>
               <user-bio/>
 
-              <p class="text-grey-dark"><strong>XP:</strong> {{ profile.xp }}</p>
+              <p class="text-grey-dark"><strong>XP:</strong> {{ user.xp }}</p>
               <p class="text-grey-dark"><strong>Posts:</strong> 0</p>
               <p class="text-grey-dark"><strong>Comentários:</strong> 0</p>
             </div>
@@ -51,7 +51,6 @@
   export default {
     beforeMount () {
       this.user = this.$store.state.user
-      this.fetchProfile()
     },
 
     components: {
@@ -65,23 +64,13 @@
 
     data () {
       return {
-        user: {},
-        profile: false
+        user: {}
       }
     },
 
-    methods: {
-      fetchProfile () {
-        axios
-          .get(`/api/profile/${this.user.id}`)
-          .then((r) => {
-            this.profile = r.data.user.profile
-          })
-          .catch((e) => {
-            // do sumethin
-          })
-      }
-    },
+    // methods: {
+    //   //
+    // },
 
     name: 'Profile'
   }
