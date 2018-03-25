@@ -1,14 +1,14 @@
 import * as actions from './actions'
 import mutations from './mutations'
 
+const wuser = window.user
+
 export default function () {
   return {
     actions,
     mutations,
     state: {
-      collapsedWindows: [],
-      currentProfileOriginalData: {},
-      hiddenAlerts: []
+      user: JSON.parse(wuser)
     }
   }
 }
