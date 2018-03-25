@@ -1,5 +1,6 @@
 [contenteditable="true"] {
   @apply .border-b-2 .border-grey;
+  min-width: 2rem;
 }
 
 [contenteditable="true"]:active,
