@@ -37,14 +37,24 @@ class Profile extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'xp', 'bio', 'use_nick', 'show_age', 'changed_nick',
+        'user_id', 'xp', 'bio', 'use_nick', 'changed_nick',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
     protected $appends = [
         'canChangeNick',
     ];
 
-    public function getCanChangeNickAttribute()
+    /**
+     * canChangeNick accessor
+     *
+     * @return bool
+     */
+    public function getCanChangeNickAttribute(): bool
     {
         return $this->canChangeNick();
     }
@@ -59,7 +69,12 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function canChangeNick()
+    /**
+     * Check if user can change nickname
+     *
+     * @return bool
+     */
+    protected function canChangeNick(): bool
     {
         return $this->xp > 50 && ! $this->changed_nick;
     }
