@@ -1,6 +1,9 @@
 let mutations = {
-  SET_USER (state, obj) {
-    state.user = obj
+  SET_USER (state, user) {
+    state.user = user
+  },
+  SET_WORKING (state, isWorking) {
+    state.working = isWorking
   }
 }
 
