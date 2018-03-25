@@ -39,3 +39,14 @@
       transform: scale(1.0);
     }
 }
+
+.loader{
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.loader svg path,
+.loader svg rect{
+  fill: #ad343e;
+}
