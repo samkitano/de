@@ -3,9 +3,9 @@
 
 {{ __('passwords.hi') }}, {{ $user->first_name }}!
 
-{{ __('passwords.requested_pw') }} [{{ Request::getHost() }}]({{ 'recover/'.$token }}?email={{ urlencode($user->email) }}).
+{{ __('passwords.requested_pw') }} [{{ Request::getHost() }}]({{ url('recover').'/'.$token }}/{{ urlencode($user->email) }}).
 
-@component('mail::button', ['url' => 'recover/'.$token.'?email='.urlencode($user->email)])
+@component('mail::button', ['url' => url('recover/'.$token.'/'.urlencode($user->email))])
 {{ __('passwords.change_password') }}
 @endcomponent
 
