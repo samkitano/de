@@ -50,7 +50,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'nick_name', 'email', 'password', 'last_active', 'banned',
+        'first_name',
+        'last_name',
+        'nick_name',
+        'email',
+        'password',
+        'last_active',
+        'xp',
+        'bio',
+        'changed_nick',
+        'banned',
+        'post_count',
     ];
 
     /**
@@ -74,16 +84,16 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['gravatar', 'name'];
+    protected $appends = ['canChangeNick', 'gravatar', 'name',];
 
     /**
-     * Profile relationship
+     * canChangeNick accessor
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return bool
      */
-    public function profile(): HasOne
+    public function getCanChangeNickAttribute(): bool
     {
-        return $this->hasOne(Profile::class);
+        return $this->canChangeNick();
     }
 
     /**
@@ -178,5 +188,15 @@ class User extends Authenticatable
     public function unban()
     {
         $this->banned = null;
+    }
+
+    /**
+     * Check if user can change nickname
+     *
+     * @return bool
+     */
+    protected function canChangeNick(): bool
+    {
+        return $this->xp > 50 && ! $this->changed_nick;
     }
 }

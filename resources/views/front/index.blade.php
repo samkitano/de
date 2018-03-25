@@ -13,7 +13,7 @@
         <!-- Scripts -->
         <script>
             @auth
-              window.user = JSON.stringify({!! __user()->load('profile') !!})
+              window.user = JSON.stringify({!! __user() !!})
             @else
               window.user = false
             @endauth

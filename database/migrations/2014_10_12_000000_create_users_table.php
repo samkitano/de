@@ -22,6 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->datetime('last_active')->nullable();
             $table->datetime('banned')->nullable();
+            $table->integer('xp')->default(10);
+            $table->string('bio')->nullable();
+            $table->boolean('changed_nick')->default(false);
+            $table->integer('post_count')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
