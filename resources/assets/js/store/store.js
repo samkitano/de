@@ -8,7 +8,8 @@ export default function () {
     actions,
     mutations,
     state: {
-      user: JSON.parse(wuser)
+      user: JSON.parse(wuser),
+      working: false
     }
   }
 }
