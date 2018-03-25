@@ -4,39 +4,21 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
+class MyProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    /** @var Request */
+    protected $request;
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * MyProfileController constructor.
+     * @param Request $request
      */
-    public function create()
+    public function __construct(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $this->request = $request;
     }
 
     /**
@@ -55,37 +37,36 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     *
+     * @throws \App\Exceptions\UndeterminedUserException
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         // just in case
-        if ($id !== __user()->id) {
+        if ($id != __user()->id) {
             return response()->json('unauthorized', 401);
         }
 
-        $data = array_except($request->all(), ['_method']);
+        $this->validateRequest();
+
+        return response()->json(['user' => $this->saveUser()]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Validate current request
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return $this
+     * @throws \App\Exceptions\UndeterminedUserException
      */
-    public function destroy($id)
-    {
-        //
-    }
-
     protected function validateRequest()
     {
-        $inputs = array_except(request()->input(), ['_method', '_token']);
+        $inputs = array_except($this->request->input(), ['_method', '_token']);
         $rules = [];
 
         foreach ($inputs as $input => $val) {
+            // exclude bio, if empty
             if (! ($input == 'bio' && is_null($val))) {
                 $rules[$input] = $this->getRules($input);
             }
@@ -96,6 +77,13 @@ class UsersController extends Controller
         return $this;
     }
 
+    /**
+     * Validation rules for current request
+     *
+     * @param $field
+     * @return mixed
+     * @throws \App\Exceptions\UndeterminedUserException
+     */
     protected function getRules($field)
     {
         $rules = [
@@ -110,6 +98,13 @@ class UsersController extends Controller
                 'min:1',
                 'max:30',
                 'regex:/^[\pL\s.-]+$/u',
+            ],
+            'nick_name'  => [
+                'required',
+                'min:1',
+                'max:40',
+                'regex:/^[\pL\s-]+$/u',
+                Rule::unique('users')->ignore(__user()->id),
             ],
             'old_email' => [
                 'required',
@@ -145,5 +140,37 @@ class UsersController extends Controller
             ],
         ];
         return $rules[$field];
+    }
+
+    /**
+     * Persist updated user
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|mixed|null|static|static[]
+     * @throws \App\Exceptions\UndeterminedUserException
+     */
+    protected function saveUser()
+    {
+        $user = User::find(__user()->id);
+        $req = array_except(
+            $this->request->input(),
+            [
+                '_method',
+                '_token',
+                'old_email',
+                'email_confirmation',
+                'old_password',
+                'password_confirmation',
+            ]
+        );
+
+        if ($this->request->has('password')) {
+            $user->password = bcrypt($req['password']);
+        } else {
+            $user[key($req)] = $this->request->input(key($req));
+        }
+
+        $user->save();
+
+        return $user;
     }
 }
