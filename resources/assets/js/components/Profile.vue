@@ -17,32 +17,20 @@
             </div>
           </div>
 
-          <div class="card flex shadow-md">
+          <div class="card flex shadow-md border-t-4 border-red">
             <div class="card-left">
               <img :src="user.gravatar" :alt="user.name">
             </div>
 
-            <div class="card-right ml-2">
-              <user-first-name :user="user"/>
+            <div class="card-right m-2">
+              <user-first-name/>
+              <user-last-name/>
+              <user-nick-name/>
+              <user-bio/>
 
-              <!--<h2 class="mb-4">-->
-                <!--<strong>Apelido:</strong> <span id="last_name" contenteditable="true">{{ user.last_name}}</span>-->
-              <!--</h2>-->
-              <!--<p class="error">{{ last_name.feedback }}</p>-->
-
-              <!--<h2 class="mb-4">-->
-                <!--<strong>Nick:</strong> <span id="nick_name" :contenteditable="profile.canChangeNick">{{ user.nick_name }}</span>-->
-              <!--</h2>-->
-              <!--<p class="error">{{ nick_name.feedback }}</p>-->
-
-              <!--<h2 class="mb-4">-->
-                <!--<strong>Bio:</strong> <span id="bio" contenteditable="true">{{ profile.bio }}</span>-->
-              <!--</h2>-->
-              <!--<p class="error">{{ bio.feedback }}</p>-->
-
-              <p><strong>XP:</strong> {{ profile.xp }}</p>
-              <p><strong>Posts:</strong> 0</p>
-              <p><strong>Comentários:</strong> 0</p>
+              <p class="text-grey-dark"><strong>XP:</strong> {{ profile.xp }}</p>
+              <p class="text-grey-dark"><strong>Posts:</strong> 0</p>
+              <p class="text-grey-dark"><strong>Comentários:</strong> 0</p>
             </div>
           </div>
         </div>
@@ -56,19 +44,23 @@
   import svgInfo from './svg/_svg-info'
   import { FadeTransition } from 'vue2-transitions'
   import userFirstName from './partials/_editable-user-first-name'
-
-  const wuser = window.user
+  import userLastName from './partials/_editable-user-last-name'
+  import userNickName from './partials/_editable-user-nick-name'
+  import userBio from './partials/_editable-user-bio'
 
   export default {
     beforeMount () {
-      this.user = JSON.parse(wuser)
+      this.user = this.$store.state.user
       this.fetchProfile()
     },
 
     components: {
       FadeTransition,
       svgInfo,
-      userFirstName
+      userFirstName,
+      userLastName,
+      userNickName,
+      userBio
     },
 
     data () {
