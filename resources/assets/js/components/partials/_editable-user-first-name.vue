@@ -7,7 +7,7 @@
              @keydown.27="cancel"
              ref="first_name"
              @click="cleanup"
-             contenteditable="true">{{ user.first_name}}</span
+             contenteditable="true">{{ $store.state.user.first_name }}</span
     ></div>
 
     <p class="error">{{ first_name.feedback }}</p>
@@ -17,12 +17,9 @@
 <script>
   import axios from 'axios'
   import { head } from 'lodash'
+  import { mapActions } from 'vuex'
 
   export default {
-    beforeMount () {
-      this.first_name.value = this.user.first_name
-    },
-
     computed: {
       invalidName () {
         let t = this.first_name.value
@@ -35,7 +32,7 @@
       return {
         first_name: {
           feedback: '',
-          value: '',
+          value: this.$store.state.user.first_name,
         },
         payload: {
           _method: 'PATCH',
@@ -45,6 +42,8 @@
     },
 
     methods: {
+      ...mapActions(['setUser']),
+
       cancel () {
         document.execCommand('undo')
       },
@@ -64,13 +63,16 @@
 
         this.payload.first_name = this.first_name.value
 
-        axios.post(`/api/users/${this.user.id}`, this.payload)
-          .then(() => {
+        axios.post(`/api/profile/${this.$store.state.user.id}`, this.payload)
+          .then((r) => {
+            this.setUser(r.data.user)
             this.$swal('Feito!', 'Nome alterado!', 'success')
           })
           .catch((e) => {
             if (e.response.status === 422) {
               this.showValidationErrors(e.response.data.errors)
+            } else {
+              // TODO
             }
           })
       },
@@ -81,13 +83,6 @@
 
       showValidationErrors (errors) {
         this.first_name.feedback = head(errors['first_name'])
-      }
-    },
-
-    props: {
-      user: {
-        required: true,
-        type: Object
       }
     }
   }
