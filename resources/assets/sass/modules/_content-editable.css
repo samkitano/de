@@ -1,10 +1,9 @@
 [contenteditable="true"] {
-  @apply .border-b-2 .border-grey;
   min-width: 2rem;
 }
 
 [contenteditable="true"]:active,
 [contenteditable="true"]:focus {
-  @apply .border-0;
   outline:none;
+  @apply .text-teal-dark
 }
