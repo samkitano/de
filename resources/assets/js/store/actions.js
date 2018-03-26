@@ -9,3 +9,11 @@ export const setWorking = ({ commit }) => {
 export const unsetWorking = ({ commit }) => {
   commit('SET_WORKING', false)
 }
+
+export const setEditing = ({ commit }, field) => {
+  commit('SET_EDITING', field)
+}
+
+export const unsetEditing = ({ commit }) => {
+  commit('SET_EDITING', '')
+}

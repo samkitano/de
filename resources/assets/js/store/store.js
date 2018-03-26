@@ -9,7 +9,8 @@ export default function () {
     mutations,
     state: {
       user: JSON.parse(wuser),
-      working: false
+      working: false,
+      editing: ''
     }
   }
 }

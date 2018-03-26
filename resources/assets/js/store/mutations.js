@@ -4,6 +4,9 @@ let mutations = {
   },
   SET_WORKING (state, isWorking) {
     state.working = isWorking
+  },
+  SET_EDITING (state, field) {
+    state.editing = field
   }
 }
 
