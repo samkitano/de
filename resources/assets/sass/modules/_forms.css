@@ -53,6 +53,10 @@ p.error {
   @apply .text-red .text-xs .italic .mt-1
 }
 
+span.error {
+  @apply .text-red
+}
+
 .checkbox {
   @apply .mb-6 .justify-between
 }
