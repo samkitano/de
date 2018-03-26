@@ -71,7 +71,7 @@
           .then((r) => {
             this.unsetWorking()
             this.setUser(r.data.user)
-            this.$swal('Feito!', 'Apelido alterado!', 'success')
+            this.$swal('Feito!', 'Bio alterada!', 'success')
           })
           .catch((e) => {
             this.unsetWorking()

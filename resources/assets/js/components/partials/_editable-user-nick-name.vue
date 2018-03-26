@@ -9,7 +9,7 @@
              @click="cleanup"
              :disabled="$store.state.working"
              class="ml-2"
-             :contenteditable=" $store.state.user.profile.canChangeNick">{{ $store.state.user.nick_name }}</span
+             :contenteditable=" $store.state.user.canChangeNick">{{ $store.state.user.nick_name }}</span
     ><span class="ml-2 text-red" v-show="$store.state.working" v-html="loader"></span></div>
 
     <p class="error">{{ nick_name.feedback }}</p>

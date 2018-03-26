@@ -2,8 +2,21 @@
   @apply .py-3 .px-2 .no-underline .rounded .text-white
 }
 
+.btn-sm {
+  @apply .pb-1 .px-2;
+  padding-top: 6px;
+}
+
 .btn-outline {
   @apply .border .border-white
+}
+
+.btn-red {
+  @apply .border .border-red-dark .text-red-lightest .bg-red .shadow-inner
+}
+
+.btn-red:hover {
+  @apply .bg-red-dark .text-white
 }
 
 .btn-hamburger {
