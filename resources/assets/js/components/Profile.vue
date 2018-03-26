@@ -1,16 +1,18 @@
 <template>
   <section class="user-profile">
-    <div class="container mx-auto mt-16 p-4">
+    <no-session/>
+
+    <div class="container mx-auto mt-16 p-4" v-if="user">
       <fade-transition>
         <div class="profile mt-4" v-if="user">
           <div class="alert alert-info mb-4">
             <div class="alert--icon">
-              <svg-info width="4rem"></svg-info>
+              <svg-info width="4rem"/>
             </div>
 
             <div class="alert--text">
               <ul>
-                <li>Clica nos textos sublinhados para editar. Dá <em>Enter</em> para guardar as alterações, <em>ESC</em> para cancelar.</li>
+                <li>Clica nos textos para editar. Dá <em>Enter</em> para guardar as alterações, <em>ESC</em> para cancelar.</li>
                 <li>Visita <a target="_blank" href="https://gravatar.com"><em>gravatar.com</em></a> para definires a tua imagem de perfil.</li>
                 <li>Poderás alterar o teu <em>nick</em> UMA única vez, quando atingires mais de 50 <em>XP</em>.</li>
               </ul>
@@ -18,11 +20,11 @@
           </div>
 
           <div class="card flex shadow-md border-t-4 border-red">
-            <div class="card-left">
+            <div class="card-left mr-2">
               <img :src="user.gravatar" :alt="user.name">
             </div>
 
-            <div class="card-right m-2 flex flex-col justify-between flex-grow">
+            <div class="card-right mt-2 flex flex-col justify-between flex-grow">
               <user-first-name/>
               <user-last-name/>
               <user-nick-name/>
@@ -34,8 +36,8 @@
                 <div class="text-grey-dark"><strong>Comentários:</strong> 0</div>
 
                 <div class="my-4">
-                  <a href="#" class="btn btn-red btn-sm"><svg-key title="Alterar Password"/></a>
-                  <a href="#" class="btn btn-red btn-sm ml-2"><svg-envelope title="Alterar Email"/></a>
+                  <a href="#" title="Alterar Password" class="btn btn-red btn-sm"><svg-key title="Alterar Password"/></a>
+                  <a href="#" title="Alterar Email" class="btn btn-red btn-sm ml-2"><svg-envelope title="Alterar Email"/></a>
                 </div>
               </div>
             </div>
@@ -44,11 +46,11 @@
       </fade-transition>
 
       <collapse-transition>
-        <div class="editing-info" v-show="$store.state.editing.length">
+        <div class="editing-info rounded-b shadow-md" v-show="$store.state.editing.length">
           <div class="text-xs text-white flex flex-wrap bg-grey-dark items-center justify-between p-2">
-            <p>A editar <strong>{{ editing }}</strong>.</p>
+            <p>A editar <strong>{{ ucFirst(editing) }}</strong>.</p>
             <p>{{ usage }}.</p>
-            <p>{{ charCount }} caracteres.</p>
+            <p v-html="charCount"></p>
           </div>
         </div>
       </collapse-transition>
@@ -67,6 +69,7 @@
   import userNickName from './partials/_editable-user-nick-name'
   import userBio from './partials/_editable-user-bio'
   import { CollapseTransition } from 'vue2-transitions'
+  import noSession from './partials/_no-session'
 
   export default {
     beforeDestroy () {
@@ -87,12 +90,19 @@
       userLastName,
       userNickName,
       userBio,
-      CollapseTransition
+      CollapseTransition,
+      noSession
     },
 
     computed: {
       charCount () {
-        return `${this.fieldSize}/${this.fieldSizes[this.editing]}`
+        let max = this.fieldSizes[this.editing]
+        let curr = this.fieldSize
+        let cl = curr === max
+          ? 'error'
+          : ''
+
+        return `<span class="${cl}">${curr}/${max}</span> caracteres.`
       },
 
       editing () {
@@ -106,11 +116,11 @@
 
     data () {
       return {
-        user: {},
+        user: false,
         usageTerms: {
           nome: 'Podes usar letras, hífens, espaços e pontos',
-          apelido:  'Podes usar letras, hífens, espaços e pontos',
-          nick:  'Podes usar letras, números e espaços',
+          apelido: 'Podes usar letras, hífens, espaços e pontos',
+          nick: 'Podes usar letras, números e espaços',
           bio: 'Podes usar letras, números, espaços e pontuação'
         },
         fieldSizes: {
