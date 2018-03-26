@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import swal from "sweetalert2"
 
 Vue.mixin({
   computed: {
@@ -42,17 +41,25 @@ xml:space="preserve">
      *
      * @returns {string}
      */
-    ucFirst: str => str.charAt(0).toUpperCase() + str.slice(1)
-  },
+    ucFirst: str => str.charAt(0).toUpperCase() + str.slice(1),
 
-  /**
-   * Alerts for a 500 range error
-   *
-   * @requires 'vue-sweetalert2'
-   *
-   * @param e
-   */
-  alertSystemError: e => {
-    swal('Eh la!', 'Ocorreu um erro no sistema. Por favor tenta de novo, ou contacta um administrador.', 'error')
-  }
+    /**
+     * Alerts for a 500 range error
+     *
+     * @requires 'vue-sweetalert2'
+     *
+     * @param e
+     */
+    alertSystemError: e => {
+      this.$swal('Eh la!', 'Ocorreu um erro no sistema. Por favor tenta de novo, ou contacta um administrador.', 'error')
+    },
+
+    /**
+     * Check if keystroke is delete
+     *
+     * @param e
+     * @returns {boolean}
+     */
+    isDelKey: e => e.keyCode === 8 || e.keyCode === 46
+  },
 })
