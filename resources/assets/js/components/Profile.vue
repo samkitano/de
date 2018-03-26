@@ -25,10 +25,10 @@
             </div>
 
             <div class="card-right mt-2 flex flex-col justify-between flex-grow">
-              <user-first-name/>
-              <user-last-name/>
-              <user-nick-name/>
-              <user-bio/>
+              <editable label="Nome" fieldName="first_name" :validation="validation.nome"/>
+              <editable label="Apelido" fieldName="last_name" :validation="validation.apelido"/>
+              <editable :editableIf="$store.state.user.canChangeNick" label="Nickname" fieldName="nick_name" :validation="validation.nickname"/>
+              <editable label="Bio" fieldName="bio" :validation="validation.bio"/>
 
               <div class="flex flex-wrap justify-between items-center px-2 bg-grey-lighter rounded-b">
                 <div class="text-grey-dark"><strong>XP:</strong> {{ user.xp }}</div>
@@ -64,12 +64,9 @@
   import svgEnvelope from './svg/_svg-envelope'
   import svgKey from './svg/_svg-key'
   import { FadeTransition } from 'vue2-transitions'
-  import userFirstName from './partials/_editable-user-first-name'
-  import userLastName from './partials/_editable-user-last-name'
-  import userNickName from './partials/_editable-user-nick-name'
-  import userBio from './partials/_editable-user-bio'
   import { CollapseTransition } from 'vue2-transitions'
   import noSession from './partials/_no-session'
+  import editable from './partials/_editable'
 
   export default {
     beforeDestroy () {
@@ -82,21 +79,18 @@
     },
 
     components: {
-      FadeTransition,
-      svgInfo,
-      svgEnvelope,
-      svgKey,
-      userFirstName,
-      userLastName,
-      userNickName,
-      userBio,
       CollapseTransition,
-      noSession
+      editable,
+      FadeTransition,
+      noSession,
+      svgEnvelope,
+      svgInfo,
+      svgKey
     },
 
     computed: {
       charCount () {
-        let max = this.fieldSizes[this.editing]
+        let max = this.editing.length > 0 ? this.validation[this.editing].max : 0
         let curr = this.fieldSize
         let cl = curr === max
           ? 'error'
@@ -110,24 +104,37 @@
       },
 
       usage () {
-        return this.usageTerms[this.editing]
+        return this.editing.length > 0 ? `Podes utilizar ${this.validation[this.editing].msg}` : ''
       }
     },
 
     data () {
       return {
         user: false,
-        usageTerms: {
-          nome: 'Podes usar letras, hífens, espaços e pontos',
-          apelido: 'Podes usar letras, hífens, espaços e pontos',
-          nick: 'Podes usar letras, números e espaços',
-          bio: 'Podes usar letras, números, espaços e pontuação'
-        },
-        fieldSizes: {
-          nome: 30,
-          apelido:  30,
-          nick:  20,
-          bio: 150
+        validation: {
+          nome: {
+            min: 2,
+            max: 30,
+            msg: 'letras, hífens, espaços e pontos',
+            regx: /[^a-zA-Z çÇàáãâÃÀÁÂéÉèÈíÍóÓòÒõÕôÔúÚ.-]/
+          },
+          apelido: {
+            min: 2,
+            max: 30,
+            msg: 'letras, hífens, espaços e pontos',
+            regx: /[^a-zA-Z çÇàáãâÃÀÁÂéÉèÈíÍóÓòÒõÕôÔúÚ.-]/
+          },
+          nickname: {
+            min: 2,
+            max: 20,
+            msg: 'letras e números',
+            regx: /[^a-zA-Z0-9çÇàáãâÃÀÁÂéÉèÈíÍóÓòÒõÕôÔúÚ]/
+          },
+          bio: {
+            max: 150,
+            msg: 'letras, números, espaços e pontuação',
+            regx: /[^a-zA-Z0-9 _\-.,:;#!?+*%$€çÇàáãâÃÀÁÂéÉèÈíÍóÓòÒõÕôÔúÚ]/
+          }
         },
         fieldSize: 0
       }
