@@ -5,6 +5,7 @@
       ><span v-on:blur="cancel"
              @keydown.13="change"
              @keydown.27="cancel"
+             @keyup="emitCount"
              ref="first_name"
              @click="cleanup"
              :disabled="$store.state.working"
@@ -20,6 +21,7 @@
   import axios from 'axios'
   import { head } from 'lodash'
   import { mapActions } from 'vuex'
+  import Bus from '../../store/bus.js';
 
   export default {
     computed: {
@@ -44,14 +46,17 @@
     },
 
     methods: {
-      ...mapActions(['setUser', 'setWorking', 'unsetWorking']),
+      ...mapActions(['setUser', 'setWorking', 'unsetWorking', 'setEditing', 'unsetEditing']),
 
       cancel () {
         document.execCommand('undo')
+        this.unsetEditing()
       },
 
       change (e) {
         this.setWorking()
+        this.unsetEditing()
+        Bus.$emit('fieldSize', this.$refs.first_name.innerText.length)
         let name = this.$refs.first_name.innerText.trim()
 
         this.$refs.first_name.blur()
@@ -85,6 +90,12 @@
 
       cleanup () {
         this.first_name.feedback = ''
+        this.setEditing('nome')
+        Bus.$emit('fieldSize', this.$refs.first_name.innerText.length)
+      },
+
+      emitCount () {
+        Bus.$emit('fieldSize', this.$refs.first_name.innerText.length)
       },
 
       showValidationErrors (errors) {

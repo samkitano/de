@@ -44,11 +44,11 @@
       </fade-transition>
 
       <collapse-transition>
-        <div class="editing-info" v-show="true">
-          <div>
+        <div class="editing-info" v-show="$store.state.editing.length">
+          <div class="text-xs text-white flex flex-wrap bg-grey-dark items-center justify-between p-2">
             <p>A editar <strong>{{ editing }}</strong>.</p>
-            <p>Utiliza {{ usage }}.</p>
-            <p>{{ charCount }} caracteres</p>
+            <p>{{ usage }}.</p>
+            <p>{{ charCount }} caracteres.</p>
           </div>
         </div>
       </collapse-transition>
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import Bus from '../store/bus.js';
   import svgInfo from './svg/_svg-info'
   import svgEnvelope from './svg/_svg-envelope'
   import svgKey from './svg/_svg-key'
@@ -69,8 +69,13 @@
   import { CollapseTransition } from 'vue2-transitions'
 
   export default {
+    beforeDestroy () {
+      Bus.$off('fieldSize', this.setFieldSize)
+    },
+
     beforeMount () {
       this.user = this.$store.state.user
+      Bus.$on('fieldSize', this.setFieldSize)
     },
 
     components: {
@@ -87,27 +92,42 @@
 
     computed: {
       charCount () {
-        return '15/30'
+        return `${this.fieldSize}/${this.fieldSizes[this.editing]}`
       },
 
       editing () {
-        return 'whatever'
+        return this.$store.state.editing
       },
 
       usage () {
-        return 'Letras, números, bla bla'
+        return this.usageTerms[this.editing]
       }
     },
 
     data () {
       return {
-        user: {}
+        user: {},
+        usageTerms: {
+          nome: 'Podes usar letras, hífens, espaços e pontos',
+          apelido:  'Podes usar letras, hífens, espaços e pontos',
+          nick:  'Podes usar letras, números e espaços',
+          bio: 'Podes usar letras, números, espaços e pontuação'
+        },
+        fieldSizes: {
+          nome: 30,
+          apelido:  30,
+          nick:  20,
+          bio: 150
+        },
+        fieldSize: 0
       }
     },
 
-    // methods: {
-    //   //
-    // },
+    methods: {
+      setFieldSize (val) {
+        this.fieldSize = val
+      }
+    },
 
     name: 'Profile'
   }
