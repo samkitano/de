@@ -2,7 +2,7 @@ a, .btn, .button{
   text-decoration: none;
 }
 
-.btn, .button{
+.btn, .button, [contenteditable="true"] {
   text-decoration: none;
   -webkit-transition: all .15s;
   -moz-transition: all .15s;
