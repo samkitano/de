@@ -25,19 +25,40 @@
             </div>
 
             <div class="card-right mt-2 flex flex-col justify-between flex-grow">
-              <editable label="Nome" fieldName="first_name" :validation="validation.nome"/>
-              <editable label="Apelido" fieldName="last_name" :validation="validation.apelido"/>
-              <editable :editableIf="$store.state.user.canChangeNick" label="Nickname" fieldName="nick_name" :validation="validation.nickname"/>
-              <editable label="Bio" fieldName="bio" :validation="validation.bio"/>
+              <editable label="Nome"
+                        fieldName="first_name"
+                        :validation="validation.nome"/>
+
+              <editable label="Apelido"
+                        fieldName="last_name"
+                        :validation="validation.apelido"/>
+
+              <editable label="Nickname"
+                        :editableIf="$store.state.user.canChangeNick"
+                        fieldName="nick_name"
+                        :validation="validation.nickname"/>
+
+              <editable label="Bio"
+                        fieldName="bio"
+                        :validation="validation.bio"/>
 
               <div class="flex flex-wrap justify-between items-center px-2 bg-grey-lighter rounded-b">
                 <div class="text-grey-dark"><strong>XP:</strong> {{ user.xp }}</div>
+
                 <div class="text-grey-dark"><strong>Posts:</strong> 0</div>
+
                 <div class="text-grey-dark"><strong>Comentários:</strong> 0</div>
 
                 <div class="my-4">
-                  <a href="#" title="Alterar Password" class="btn btn-red btn-sm"><svg-key title="Alterar Password"/></a>
-                  <a href="#" title="Alterar Email" class="btn btn-red btn-sm ml-2"><svg-envelope title="Alterar Email"/></a>
+                  <a href="#"
+                     @click.prevent="showChangePwModal"
+                     title="Alterar Password"
+                     class="btn btn-red btn-sm"><svg-key title="Alterar Password"/></a>
+
+                  <a href="#"
+                     @click.prevent="showChangeEmailModal"
+                     title="Alterar Email"
+                     class="btn btn-red btn-sm ml-2"><svg-envelope title="Alterar Email"/></a>
                 </div>
               </div>
             </div>
@@ -48,7 +69,7 @@
       <collapse-transition>
         <div class="editing-info rounded-b shadow-md" v-show="$store.state.editing.length">
           <div class="text-xs text-white flex flex-wrap bg-grey-dark items-center justify-between p-2">
-            <p>A editar <strong>{{ ucFirst(editing) }}</strong>.</p>
+            <p>A editar: <strong>{{ ucFirst(editing) }}</strong>.</p>
             <p>{{ usage }}.</p>
             <p v-html="charCount"></p>
           </div>
@@ -60,13 +81,13 @@
 
 <script>
   import Bus from '../store/bus.js';
-  import svgInfo from './svg/_svg-info'
-  import svgEnvelope from './svg/_svg-envelope'
   import svgKey from './svg/_svg-key'
+  import svgInfo from './svg/_svg-info'
+  import editable from './partials/_editable'
+  import svgEnvelope from './svg/_svg-envelope'
+  import noSession from './partials/_no-session'
   import { FadeTransition } from 'vue2-transitions'
   import { CollapseTransition } from 'vue2-transitions'
-  import noSession from './partials/_no-session'
-  import editable from './partials/_editable'
 
   export default {
     beforeDestroy () {
@@ -143,6 +164,53 @@
     methods: {
       setFieldSize (val) {
         this.fieldSize = val
+      },
+
+      showChangeEmailModal () {
+        this.$swal.setDefaults({
+          input: 'email',
+          confirmButtonText: 'Seguinte &rarr;',
+          cancelButtonText: 'Cancelar',
+          showCancelButton: true,
+          progressSteps: ['1', '2', '3']
+        })
+
+        var steps = [
+          {
+            title: 'Email actual',
+            text: 'Introduz o teu e-mail actual'
+          },
+          {
+            title: 'Novo Email',
+            text: 'Introduz o novo endereço de e-mail'
+          },
+          {
+            title: 'Confirma o teu Novo Email',
+            text: 'Re-introduz o novo endereço de e-mail'
+          }
+        ]
+
+        this.$swal.queue(steps).then((result) => {
+          this.$swal.resetDefaults()
+
+          if (result.value) {
+            this.$swal({
+              title: 'Confirmação',
+              confirmButtonText: 'Alterar',
+              cancelButtonText: 'Cancelar',
+              showCancelButton: true,
+              html:
+              'Antigo: ' + result.value[0] + ' | Novo: ' + result.value[2],
+            })
+              .then((r) => {
+                // TODO post
+              })
+          }
+        })
+      },
+
+      showChangePwModal () {
+        // TODO
       }
     },
 
