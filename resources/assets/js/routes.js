@@ -11,27 +11,32 @@ let routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: { name: 'Inicio' }
   },
   {
     path: '/entrar',
     name: 'entrar',
-    component: Entrar
+    component: Entrar,
+    meta: { name: 'Entrar' }
   },
   {
     path: '/forum',
     name: 'forum',
-    component: Forum
+    component: Forum,
+    meta: { name: 'Forum' }
   },
   {
     path: '/recover/:token/:email',
     name: 'recover',
-    component: RecoverPw
+    component: RecoverPw,
+    meta: { name: 'Recuperar Password'}
   },
   {
     path:'/profile',
     name: 'profile',
-    component: Profile
+    component: Profile,
+    meta: { name: 'Perfil' }
   }
 ]
 

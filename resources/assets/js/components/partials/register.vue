@@ -191,7 +191,7 @@
         axios
           .post('/register', this.payload)
           .then(() => {
-            this.$swal(`Obrigado por te registares, ${this.first_name}.`, 'Esperamos que desfrutes do nosso site!', 'success')
+            this.$swal(`Obrigado por te registares, ${this.form.first_name.value}.`, 'Esperamos que desfrutes do nosso site!', 'success')
               .then(() => {
                 window.location = '/'
               })
