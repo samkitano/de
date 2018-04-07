@@ -5,7 +5,8 @@ import Forum from './components/Forum'
 import Entrar from './components/Entrar'
 import Home from './components/Home.vue'
 import RecoverPw from './components/RecoverPw'
-import Profile from  './components/Profile.vue'
+import Profile from './components/Profile.vue'
+import Articles from './components/Articles.vue'
 
 let routes = [
   {
@@ -37,7 +38,13 @@ let routes = [
     name: 'profile',
     component: Profile,
     meta: { name: 'Perfil' }
-  }
+  },
+  {
+    path: '/articles',
+    name: 'articles',
+    component: Articles,
+    meta: { name: 'Artigos'}
+  },
 ]
 
 export default new VueRouter({
