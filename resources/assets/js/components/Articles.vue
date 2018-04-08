@@ -2,9 +2,9 @@
     <section class="articles flex flex-col">
         <hero-mini/>
 
-        <div class="box flex relative self-center bg-grey-lighter w-5/6 -mt-16 rounded">
+        <div class="box flex relative self-center bg-white w-5/6 -mt-16 rounded">
             <div class="left flex flex-row w-full p-8">
-                <div class="flex w-2/3 flex-col">
+                <div class="flex w-3/5 flex-col">
                     <div class="forum-left p-4">
                         <div class="forum-tabs block flex bg-white shadow">
                             <ul class="flex flex-row items-stretch justify-start content-center items-center list-reset text-xs w-full shadow-1">
@@ -34,7 +34,7 @@
                 </div>
 
 
-                <div class="forum-right  w-1/3 p-4">
+                <div class="forum-right  w-2/5 p-4">
                     <div class="block shadow flex flex-row items-stretch content-around justify-around w-full bg-white py-3 text-xs items-center px-4">
 
                         <div class="flex flex-row items-center">
