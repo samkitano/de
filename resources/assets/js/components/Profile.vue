@@ -1,10 +1,33 @@
 <script src="../../../../tailwind.js"></script>
 <template>
-    <section class="user-profile">
+    <section class="user-profile flex flex-col">
         <hero-mini/>
         <no-session/>
 
-        <card/>
+        <div class="contentor flex flex-col p-4">
+            <div class="flex self-center bg-white relative shadow hover:shadow-none w-28 h-28 -mt-14 rounded-full">
+                <router-link class="lg:mt-0" to="/profile"><img :src="user.gravatar" :alt="user.name" class="rounded-full"></router-link>
+            </div>
+
+            <div class="flex flex-col p-4">
+                <div class="flex flex-col bg-grey-lightest p-4 shadow">
+                    <span class="signature text-5xl flex flex-col self-center p-2">
+                        {{ $store.state.user.first_name }} {{ $store.state.user.last_name }}
+                    </span>
+
+                    <ul class="list-reset flex flex-row w-full justify-center w-1/2 align-stretch p-4">
+                        <a href="#" class="tab-link"><li class="p-3">Informação Geral</li></a>
+                        <a href="#" class="tab-link"><li class="p-3">Publicações</li></a>
+                        <a href="#" class="tab-link"><li class="p-3">Comentários</li></a>
+                        <a href="#" class="tab-link"><li class="p-3">Editar</li></a>
+                    </ul>
+                    <card/>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<card/>
 
         <div class="container mx-auto p-4" v-if="user">
             <div class="feed bg-grey-lightest w-full p-4 rounded shadow">
@@ -19,11 +42,11 @@
                 <fade-transition>
                     <div class="profile mt-4" v-if="user">
                         <div class="alert alert-info mb-4">
-                            <div class="alert--icon">
+                            <div class="alert&#45;&#45;icon">
                                 <svg-info width="4rem"/>
                             </div>
 
-                            <div class="alert--text">
+                            <div class="alert&#45;&#45;text">
                                 <ul>
                                     <li>Clica nos textos para editar. Dá <em>Enter</em> para guardar as alterações, <em>ESC</em> para cancelar.</li>
                                     <li>Visita <a target="_blank" href="https://gravatar.com"><em>gravatar.com</em></a> para definires a tua imagem de perfil.</li>
@@ -89,7 +112,8 @@
                     </div>
                 </collapse-transition>
             </div>
-        </div>
+        </div>-->
+
 
 
 
@@ -240,5 +264,6 @@
 </script>
 
 <style lang="sass">
-
+    .signature
+        font-family: 'Tangerine', cursive
 </style>

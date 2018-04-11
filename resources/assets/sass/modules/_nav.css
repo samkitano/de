@@ -1,9 +1,9 @@
 nav.main-nav {
-  @apply .fixed .pin-y .pin-x .flex .items-center .justify-between .p-6 .h-16 .z-10
+  @apply .fixed .pin-y .pin-x .flex .h-16 .z-10 .text-white
 }
 
 nav.main-nav .brand {
-  @apply .flex .items-center .flex-no-shrink .text-white .mr-6
+  @apply .flex .items-center .flex-no-shrink .text-white
 }
 
 .burger {
@@ -15,11 +15,11 @@ nav.main-nav .brand {
 }
 
 .main-nav .navbar-left {
-  @apply .text-sm
+  @apply .text-xs
 }
 
 .main-nav .navbar-right {
-  @apply .flex .items-center .mr-4
+  @apply .flex .items-center .mr-4 .text-xs
 }
 
 .main-nav .navbar-right .user-name {

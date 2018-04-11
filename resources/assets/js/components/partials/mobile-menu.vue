@@ -83,7 +83,7 @@
   }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   .mUl
     position: absolute
     display: flex

@@ -1,20 +1,19 @@
 <template>
-  <div>
-    <a href="#" @click.prevent="toggleOptions"><svg-gear/></a>
+  <li>
+    <router-link to="#" class="nav-link lg:inline-flex lg:mt-0" @click.prevent="toggleOptions">
+        <svg-gear/>
+    </router-link>
 
     <collapse-transition>
-      <div v-show="optionsIsVisible" class="absolute bg-white pin-r mr-4">
-        <ul class="m-0 p-2">
-          <li class="list-reset">
-            <a class="flex items-center"
-               href="#"
+          <li  v-show="optionsIsVisible" class="list-reset">
+            <router-link class=""
+               to="#"
                @click.prevent="logout"
-            ><svg-off/> <span class="ml-2">Logout</span></a>
+            ><svg-off/> <span class="ml-2">Logout</span>
+            </router-link>
           </li>
-        </ul>
-      </div>
     </collapse-transition>
-  </div>
+  </li>
 </template>
 
 <script>

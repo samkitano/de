@@ -7,6 +7,8 @@ import Home from './components/Home.vue'
 import RecoverPw from './components/RecoverPw'
 import Profile from './components/Profile.vue'
 import Articles from './components/Articles.vue'
+import Article from './components/Article.vue'
+import Topic from './components/Topic.vue'
 
 let routes = [
   {
@@ -28,6 +30,12 @@ let routes = [
     meta: { name: 'Forum' }
   },
   {
+    path: '/topic',
+    name: 'topic',
+    component: Topic,
+    meta: { name: 'Tópico' }
+  },
+  {
     path: '/recover/:token/:email',
     name: 'recover',
     component: RecoverPw,
@@ -44,6 +52,12 @@ let routes = [
     name: 'articles',
     component: Articles,
     meta: { name: 'Artigos'}
+  },
+  {
+    path: '/article',
+    name: 'article',
+    component: Article,
+    meta: { name: 'Artigo'}
   },
 ]
 

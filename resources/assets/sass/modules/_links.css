@@ -11,11 +11,15 @@ a, .btn, .button{
 }
 
 .nav-link {
-  @apply .flex .items-center .mt-4 .text-white .mr-4 .font-bold .py-2 .px-2
+    @apply .flex .items-center .mt-4 .text-white .font-bold .pt-10 .pb-2 .px-4
+}
+
+a:hover {
+    @apply .text-white
 }
 
 .navbar-right a {
-  @apply .p-2
+
 }
 
 .nav-link:not(.search):hover, .nav-link.router-link-exact-active, .navbar-right a.router-link-exact-active {
@@ -34,6 +38,13 @@ a, .btn, .button{
   outline: none;
 }
 
-.search input:focus {
-  @apply .border-b .border-red
+.tab-link {
+  color: #606f7b;
+  border-radius: 2px;
 }
+
+.tab-link:hover {
+  color: #606f7b;
+  background: #f8fafc;
+}
+

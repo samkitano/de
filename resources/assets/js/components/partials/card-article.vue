@@ -1,6 +1,6 @@
 <template>
     <div class="topic flex flex-row mt-4 shadow">
-        <div class="flex topic-left w-1/6 p-4 bg-grey-lighter flex flex-col items-stretch justify-between content-between text-center">
+        <div class="flex topic-left w-1/6 p-4 bg-grey-lightest flex flex-col items-stretch justify-between content-between text-center">
             <svg width="2rem"
                  height="2rem"
                  viewBox="0 0 1792 1792"
@@ -15,7 +15,7 @@
                  class="fill-current self-center"
                  xmlns="http://www.w3.org/2000/svg"><path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"/></svg>
         </div>
-        <div class="flex flex-col topic-right p-4">
+        <div class="flex flex-col topic-right bg-white p-4">
             <span class="text-xs">
                 <a href="#">Direito Penal</a>
             </span>
@@ -40,7 +40,7 @@
 
 <script>
   export default {
-    name: 'Topic'
+    name: 'CardArticle'
   }
 </script>
 
