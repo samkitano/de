@@ -1,5 +1,13 @@
-a, .btn, .button{
-  text-decoration: none;
+a {
+    @apply .text-red .font-semibold .no-underline
+}
+
+a:hover, a:active {
+    @apply .text-red-dark
+}
+
+.active-link, .exact-active-link {
+    @apply .border-b-4 .border-red
 }
 
 .btn, .button, [contenteditable="true"] {
@@ -12,10 +20,6 @@ a, .btn, .button{
 
 .nav-link {
     @apply .flex .items-center .mt-4 .text-white .font-bold .pt-10 .pb-2 .px-4
-}
-
-a:hover {
-    @apply .text-white
 }
 
 .navbar-right a {

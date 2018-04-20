@@ -4,7 +4,38 @@
         <hero-mini/>
         <no-session/>
 
-        <div class="contentor flex flex-col p-4">
+        <div class="flex flex-col">
+            <div class="flex self-center bg-white relative shadow hover:shadow-none w-28 h-28 -mt-14 rounded-full">
+                <router-link class="lg:mt-0" to="/profile"><img :src="user.gravatar" :alt="user.name" class="rounded-full"></router-link>
+            </div>
+            <div class="w-full bg-white -mt-14">
+                <ul>
+                    <li>Feed</li>
+                    <li>Publicações</li>
+                    <li>Mensagens</li>
+                </ul>
+            </div>
+
+            <div class="flex flex-row w-full p-8">
+                <div class="flex w-1/4 px-4 self-start">
+                    <profile-left/>
+                </div>
+
+
+
+                <div class="flex w-1/2 px-4 self-start">
+                    <profile-mid/>
+                </div>
+
+
+
+                <div class="flex w-1/4 px-4 self-start">
+                    <profile-right/>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="contentor flex flex-col p-4">
             <div class="flex self-center bg-white relative shadow hover:shadow-none w-28 h-28 -mt-14 rounded-full">
                 <router-link class="lg:mt-0" to="/profile"><img :src="user.gravatar" :alt="user.name" class="rounded-full"></router-link>
             </div>
@@ -24,7 +55,7 @@
                     <card/>
                 </div>
             </div>
-        </div>
+        </div>-->
 
 
         <!--<card/>
@@ -130,7 +161,10 @@
   import { FadeTransition } from 'vue2-transitions';
   import { CollapseTransition } from 'vue2-transitions';
   import HeroMini from './partials/hero-mini.vue';
-  import Card from './partials/card.vue';
+  import Card from './partials/profile/card.vue';
+  import ProfileLeft from './partials/profile/profile-left.vue';
+  import ProfileMid from './partials/profile/profile-mid.vue';
+  import ProfileRight from './partials/profile/profile-right.vue';
 
   export default {
     beforeDestroy () {
@@ -151,7 +185,10 @@
       svgInfo,
       svgKey,
       HeroMini,
-      Card
+      Card,
+      ProfileLeft,
+      ProfileMid,
+      ProfileRight
     },
 
     computed: {

@@ -1,14 +1,19 @@
 <template>
-    <div class="topic flex flex-col mt-4 bg-white shadow rounded">
-        <div class="topic-top-top flex flex-row mt-4 w-full">
-            <a href="#" class="">
-                <div class="flex self-start bg-white text-red p-2 border-red border-l-4 -ml-1 shadow">
-                    <span class="font-bold text-xs">
-                        DIREITO PENAL
+    <div class="body-topic flex flex-col bg-white shadow rounded">
+        <div class="body-topic-top-top flex flex-row mt-4 w-full">
+            <div class="flex flex-row self-start items-center bg-white text-red p-2 border-red border-l-4 -ml-1 shadow">
+                <a href="#" class="">
+                    <span class="flex-grow font-bold self-stretch px-2 text-xs">
+                        DIREITO PENAL:
                     </span>
-                </div>
-            </a>
+                </a>
+                <a href="#" class="text-grey-darkest hover:text-grey-darkest">
+                    <span class="flex-grow font-bold px-2">
+                        Como é que posso ganhar 1050€ sem fazer nada?
+                    </span>
+                </a>
 
+            </div>
             <div class="flex px-4 flex-1 justify-end self-center">
                 <span>
                     <svg width="1rem"
@@ -37,12 +42,9 @@
                 </div>
             </div>
 
-            <div class="topic-mid flex flex-col px-4 ml-10 items-stretch w-full">
-                <span class="self-stretch w-full font-bold">
-                    <p>Como é que posso ganhar 1050€ sem fazer nada?</p>
-                </span>
+            <div class="topic-mid flex flex-col px-14 items-stretch w-full">
 
-                <div class="flex flex-col border-l-5 mt-2 px-2 border-grey-light">
+                <div class="flex flex-col mt-2 border-grey-light">
                     <p>A minha questão é:</p>
                     <p>Como é que posso ganhar 1000€, quiçá 30.000.000€, sem fazer nada?</p>
                     <p>Dá para fazer isso a jogar computador?</p>
@@ -76,8 +78,5 @@
 
 <style lang="sass" scoped>
     p
-    line-height: 1.5rem
-
-    .card-topic-links:hover
-    color: #3d4852
+        line-height: 1.5rem
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="topic flex flex-col mt-4 bg-white shadow rounded">
+    <div class="topic flex flex-col mb-4 bg-white rounded">
         <div class="topic-top-top flex flex-row mt-4 w-full">
             <a href="#" class="">
                 <div class="flex self-start bg-white text-red p-2 border-red border-l-4 -ml-1 shadow">
@@ -55,7 +55,7 @@
                 <li class="rounded px-4 py-2 w-1/3 text-center hover:bg-grey-lighter">
                     Gosto
                 </li>
-                <router-link class="card-topic-links font-thin rounded px-4 py-2 w-1/3 text-center text-grey-darker hover:text-grey-darker hover:bg-grey-lighter" to="/topic">
+                <router-link class="card-topic-links font-thin rounded px-4 py-2 w-1/3 text-center text-grey-darkest hover:text-grey-darkest hover:bg-grey-lighter" to="/topic">
                     <li class="">
                         Comentar
                     </li>
@@ -77,7 +77,4 @@
 <style lang="sass">
     p
         line-height: 1.5rem
-
-    .card-topic-links:hover
-        color: #3d4852
 </style>

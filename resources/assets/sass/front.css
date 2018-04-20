@@ -1,17 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine');
 
 body, html {
-    @apply .text-grey-darkest .bg-white
+    @apply .text-grey-darkest .bg-grey-light
 }
 
-a {
-    @apply .text-red .font-semibold
+ul {
+    @apply .list-reset
 }
 
-a:hover, a:active {
-    @apply .text-red-dark
-}
 
-.active-link, .exact-active-link {
-    @apply .border-b-4 .border-red
-}

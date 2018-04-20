@@ -52,3 +52,7 @@
 .btn-transparent:hover {
   @apply .bg-red .border-transparent
 }
+
+.btn, .button{
+  text-decoration: none;
+}

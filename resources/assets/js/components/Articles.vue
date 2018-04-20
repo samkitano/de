@@ -93,7 +93,7 @@
 <script>
   import HeroMini from './partials/hero-mini.vue';
   import CardArticle from './partials/card-article.vue';
-  import CardTopic from './partials/card-topic.vue';
+  import CardTopic from './partials/forum/card-topic.vue';
   import ForumRight from './partials/forum-right.vue';
 
   export default {
