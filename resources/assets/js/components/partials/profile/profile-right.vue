@@ -1,12 +1,7 @@
 <template>
-    <div class="flex flex-col bg-white rounded shadow p-8">
-        <div class="flex flex-col pb-8">
-            <span class="title-xs">
-                Sobre mim
-            </span>
-            <span class="text-xs py-4">
-                {{ $store.state.user.bio }}
-            </span>
+    <div class="flex flex-col bg-white rounded shadow p-8 w-full">
+        <div class="flex flex-col pb-16 bg-red text-white">
+            Publicidade
         </div>
 
         <div class="flex flex-col pb-8">

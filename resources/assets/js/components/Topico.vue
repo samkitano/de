@@ -4,7 +4,7 @@
         <div class="flex flex-col">
             <div class="flex flex-row w-full p-8">
                 <div class="flex w-2/3 px-4">
-                    <forum-left/>
+                    <topic-left/>
                 </div>
 
                 <div class="flex w-1/3 px-4">
@@ -17,22 +17,16 @@
 
 <script>
   import HeroMini from './partials/hero-mini.vue';
-  import CardArticle from './partials/card-article.vue';
-  import CardTopic from './partials/forum/card-topic.vue';
-  import ForumLeft from './partials/forum/forum-left.vue';
-  import ForumMid from './partials/forum/forum-mid.vue';
+  import TopicLeft from './partials/forum/topic-left.vue';
   import ForumRight from './partials/forum/forum-right.vue';
 
   export default {
     components: {
       HeroMini,
-      CardTopic,
-      CardArticle,
-      ForumLeft,
-      ForumMid,
+      TopicLeft,
       ForumRight,
     },
-    name: 'Forum'
+    name: 'Topico'
   }
 </script>
 

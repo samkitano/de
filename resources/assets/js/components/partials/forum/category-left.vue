@@ -1,104 +1,26 @@
 <template>
     <section class="w-full">
         <div class="flex flex-col rounded shadow bg-white p-4">
-            <h2>Geral</h2>
+            <h2>Ramos do Direito > Direito Penal</h2>
             <span class="text-xs text-grey-dark pt-2 pb-8">
-                Para qualquer tema, tipo a industria de tampas de garrafão em Zimbabwe, ou anúncios.
-            </span>
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
-                <div class="flex flex-row text-xs p-4 w-full">
-                    <div class="flex flex-row w-5/6 items-center">
-                        <svg-exclamation class="text-grey-dark text-xs fill-current w-8 h-8"/>
-
-                        <div class="flex flex-col pl-4">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                Anúncios
-                            </span>
-                            <span class="text-grey-darker pt-1">
-                                Os anúncios aqui
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex flex-row w-1/6">
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                175
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Tópicos
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                634
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Comentários
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
-                <div class="flex flex-row text-xs p-4 w-full">
-                    <div class="flex flex-row w-5/6 items-center">
-                        <svg-coffee class="text-grey-dark text-xs fill-current w-8 h-8"/>
-
-                        <div class="flex flex-col pl-4">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                Só Café
-                            </span>
-                            <span class="text-grey-darker pt-1">
-                                A industria de tampas de garrafão em Zimbabwe aqui
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex flex-row w-1/6">
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                175
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Tópicos
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                634
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Comentários
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-        </div>
-
-        <div class="flex flex-col rounded shadow bg-white p-4 mt-8">
-            <h2>Ramos de Direito</h2>
-            <span class="text-xs text-grey-dark pt-2 pb-8">
-                Assuntos referentes aos vários ramos do Direito. Desde questões a sugestões.
+                Assuntos referentes apenas a Direito Penal
             </span>
 
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
+            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria/topico">
                 <div class="flex flex-row text-xs p-4 w-full">
                     <div class="flex flex-row w-5/6 items-center">
-                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8"/>
+                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8 flex-no-shrink"/>
 
                         <div class="flex flex-col pl-4">
                             <span class="font-bold text-sm text-grey-darkest">
-                                Direito Civil
+                                Uma pessoa que tem cancelamento de notas na polícia civil pode ter seus dados acessados pela polícia civil de outro estado?
                             </span>
                             <span class="text-grey-darker pt-1">
-                                Assuntos referentes apenas a Direito Civil
+                                Postado à 3 dias e 14 horas - Última atividade à 23 minutos
                             </span>
                         </div>
                     </div>
-                    <div class="flex flex-row w-1/6">
+                    <div class="flex flex-row w-1/6 items-center">
                         <div class="flex flex-col w-1/2 items-center">
                             <span class="font-bold text-sm text-grey-darkest">
                                 175
@@ -120,21 +42,21 @@
                 </div>
             </router-link>
 
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
+            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria/topico">
                 <div class="flex flex-row text-xs p-4 w-full">
                     <div class="flex flex-row w-5/6 items-center">
-                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8"/>
+                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8 flex-no-shrink"/>
 
                         <div class="flex flex-col pl-4">
                             <span class="font-bold text-sm text-grey-darkest">
-                                Direito Penal
+                                Uma pessoa que tem cancelamento de notas na polícia civil pode ter seus dados acessados pela polícia civil de outro estado?
                             </span>
                             <span class="text-grey-darker pt-1">
-                                Assuntos referentes apenas a Direito Penal
+                                Postado à 3 dias e 14 horas - Última atividade à 23 minutos
                             </span>
                         </div>
                     </div>
-                    <div class="flex flex-row w-1/6">
+                    <div class="flex flex-row w-1/6 items-center">
                         <div class="flex flex-col w-1/2 items-center">
                             <span class="font-bold text-sm text-grey-darkest">
                                 175
@@ -156,59 +78,21 @@
                 </div>
             </router-link>
 
-
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
+            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria/topico">
                 <div class="flex flex-row text-xs p-4 w-full">
                     <div class="flex flex-row w-5/6 items-center">
-                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8"/>
+                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8 flex-no-shrink"/>
 
                         <div class="flex flex-col pl-4">
                             <span class="font-bold text-sm text-grey-darkest">
-                                Direito Comercial
+                                Uma pessoa que tem cancelamento de notas na polícia civil pode ter seus dados acessados pela polícia civil de outro estado?
                             </span>
                             <span class="text-grey-darker pt-1">
-                                Assuntos referentes apenas a Direito Comercial
+                                Postado à 3 dias e 14 horas - Última atividade à 23 minutos
                             </span>
                         </div>
                     </div>
-                    <div class="flex flex-row w-1/6">
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                175
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Tópicos
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col w-1/2 items-center">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                634
-                            </span>
-                            <span class="pt-1 text-grey-darker">
-                                Comentários
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </router-link>
-
-
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
-                <div class="flex flex-row text-xs p-4 w-full">
-                    <div class="flex flex-row w-5/6 items-center">
-                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8"/>
-
-                        <div class="flex flex-col pl-4">
-                            <span class="font-bold text-sm text-grey-darkest">
-                                Direito das Famílias
-                            </span>
-                            <span class="text-grey-darker pt-1">
-                                Assuntos referentes apenas a Direito das Famílias
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex flex-row w-1/6">
+                    <div class="flex flex-row w-1/6 items-center">
                         <div class="flex flex-col w-1/2 items-center">
                             <span class="font-bold text-sm text-grey-darkest">
                                 175
@@ -231,21 +115,58 @@
             </router-link>
 
 
-            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria">
+            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria/topico">
                 <div class="flex flex-row text-xs p-4 w-full">
                     <div class="flex flex-row w-5/6 items-center">
-                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8"/>
+                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8 flex-no-shrink"/>
 
                         <div class="flex flex-col pl-4">
                             <span class="font-bold text-sm text-grey-darkest">
-                                Direito Constitucional
+                                Uma pessoa que tem cancelamento de notas na polícia civil pode ter seus dados acessados pela polícia civil de outro estado?
                             </span>
                             <span class="text-grey-darker pt-1">
-                                Assuntos referentes apenas a Direito Constitucional
+                                Postado à 3 dias e 14 horas - Última atividade à 23 minutos
                             </span>
                         </div>
                     </div>
-                    <div class="flex flex-row w-1/6">
+                    <div class="flex flex-row w-1/6 items-center">
+                        <div class="flex flex-col w-1/2 items-center">
+                            <span class="font-bold text-sm text-grey-darkest">
+                                175
+                            </span>
+                            <span class="pt-1 text-grey-darker">
+                                Tópicos
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col w-1/2 items-center">
+                            <span class="font-bold text-sm text-grey-darkest">
+                                634
+                            </span>
+                            <span class="pt-1 text-grey-darker">
+                                Comentários
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </router-link>
+
+
+            <router-link class="flex flex-row hover:bg-grey-lighter rounded font-thin" to="/forum/categoria/topico">
+                <div class="flex flex-row text-xs p-4 w-full">
+                    <div class="flex flex-row w-5/6 items-center">
+                        <svg-book class="text-grey-dark text-xs fill-current w-8 h-8 flex-no-shrink"/>
+
+                        <div class="flex flex-col pl-4">
+                            <span class="font-bold text-sm text-grey-darkest">
+                                Uma pessoa que tem cancelamento de notas na polícia civil pode ter seus dados acessados pela polícia civil de outro estado?
+                            </span>
+                            <span class="text-grey-darker pt-1">
+                                Postado à 3 dias e 14 horas - Última atividade à 23 minutos
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-row w-1/6 items-center">
                         <div class="flex flex-col w-1/2 items-center">
                             <span class="font-bold text-sm text-grey-darkest">
                                 175
@@ -281,7 +202,7 @@
       svgExclamation,
       svgBook
     },
-    name: 'forum-left'
+    name: 'category-left'
   }
 </script>
 

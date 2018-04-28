@@ -4,7 +4,7 @@
       <ul class="flex flex-row mUl bg-white list-reset text-grey-dark shadow-lg"
           v-if="menuIsVisible">
         <li class="m-search mLi text-grey-dark">
-          <!-- <svg-magnify/> -->
+          <!-- <_svg-magnify/> -->
           <input class="bg-transparent w-full py-3 px-4 bg-grey-lighter text-grey-darker"
                  type="text"
                  placeholder="Pesquisa..."

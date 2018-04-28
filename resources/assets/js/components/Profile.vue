@@ -21,13 +21,9 @@
                     <profile-left/>
                 </div>
 
-
-
                 <div class="flex w-1/2 px-4 self-start">
                     <profile-mid/>
                 </div>
-
-
 
                 <div class="flex w-1/4 px-4 self-start">
                     <profile-right/>
@@ -74,7 +70,7 @@
                     <div class="profile mt-4" v-if="user">
                         <div class="alert alert-info mb-4">
                             <div class="alert&#45;&#45;icon">
-                                <svg-info width="4rem"/>
+                                <_svg-info width="4rem"/>
                             </div>
 
                             <div class="alert&#45;&#45;text">
@@ -120,12 +116,12 @@
                                         <a href="#"
                                            @click.prevent="showChangePwModal"
                                            title="Alterar Password"
-                                           class="btn btn-red btn-sm"><svg-key title="Alterar Password"/></a>
+                                           class="btn btn-red btn-sm"><_svg-key title="Alterar Password"/></a>
 
                                         <a href="#"
                                            @click.prevent="showChangeEmailModal"
                                            title="Alterar Email"
-                                           class="btn btn-red btn-sm ml-2"><svg-envelope title="Alterar Email"/></a>
+                                           class="btn btn-red btn-sm ml-2"><_svg-envelope title="Alterar Email"/></a>
                                     </div>
                                 </div>
                             </div>

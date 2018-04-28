@@ -67,16 +67,16 @@
     <div class="navbar-left sm:flex-col lg:flex-grow">
       <router-link class="nav-link lg:inline-flex lg:mt-0"
                    to="/">
-        <svg-home/>
+        <_svg-home/>
         <span class="ml-1">Página Inicial</span>
       </router-link>
 
       <router-link to="/forum" class="nav-link lg:inline-flex lg:mt-0">
-        <svg-comment/><span class="ml-1">Fórum</span>
+        <_svg-comment/><span class="ml-1">Fórum</span>
       </router-link>
 
       <div class="nav-link search lg:inline-flex lg:mt-0">
-        <svg-magnify/>
+        <_svg-magnify/>
         <input class="ml-1 bg-transparent text-white"
                type="text"
                placeholder="Pesquisa..."

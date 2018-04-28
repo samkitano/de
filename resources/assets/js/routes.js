@@ -8,7 +8,8 @@ import RecoverPw from './components/RecoverPw'
 import Profile from './components/Profile.vue'
 import Articles from './components/Articles.vue'
 import Article from './components/Article.vue'
-import Topic from './components/Topic.vue'
+import Topic from './components/Topico.vue'
+import Categoria from './components/Categoria.vue'
 
 let routes = [
   {
@@ -30,8 +31,14 @@ let routes = [
     meta: { name: 'Forum' }
   },
   {
-    path: '/topic',
-    name: 'topic',
+    path: '/forum/categoria',
+    name: 'categoria',
+    component: Categoria,
+    meta: { name: 'Categoria' }
+  },
+  {
+    path: '/forum/categoria/topico',
+    name: 'topico',
     component: Topic,
     meta: { name: 'Tópico' }
   },
